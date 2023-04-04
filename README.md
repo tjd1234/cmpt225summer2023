@@ -1,1 +1,3 @@
-# cmpt225summer2023
+# CMPT 225, Summer 2023
+
+
