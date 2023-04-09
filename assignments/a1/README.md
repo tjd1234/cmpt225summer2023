@@ -1,3 +1,272 @@
-# Assignment 1
+## Assignment 1: Word Lists
 
-Details of this assignment will be posted as soon as they are ready.
+In this assignment, your task is to create a class that counts how many times
+each word appears in a file. The class *must* use a **singly-linked list** as
+its underlying representation --- vectors, arrays, or other containers are *not*
+allowed.
+
+When it's done, you'll be able to write code like this:
+
+```cpp
+Wordlist lst("tiny_shakespeare.txt");
+lst.print_stats();
+```
+
+This prints:
+
+```
+Number of different words: 25670
+    Total number of words: 202651
+       Most frequent word: the 5437
+     Number of singletons: 14919 (58%)
+      Average word length: 7
+```
+
+
+## Getting Started
+
+All the code you write goes in [a1.cpp](a1.cpp). [a1.cpp](a1.cpp) has some code
+already written, plus some comments that explain what you need to do.  
+
+### Implement the Methods in Wordlist_base
+
+Your task is to write a class named `Wordlist` that implements all the virtual
+methods in listed in the `Wordlist_base` class, in the file
+[Wordlist_base.h](Wordlist_base.h). Most of the methods in `Wordlist_base` are
+*virtual* and *abstract* methods, and so you *must* write your own version of
+them in `Wordlist`. A few methods, such as `print_stats`, have implementations
+that you *can't* change in `Wordlist`, i.e. your `Wordlist` class must use them
+as given.
+
+Do **not** change [Wordlist_base.h](Wordlist_base.h) in any way: keep it as-is.
+
+### Implement a Default Constructor and Destructor
+
+In addition to the methods listed in `Wordlist_base`, also write a *default
+constructor* that takes no parameters and creates an empty `Wordlist` object:
+
+```cpp
+Wordlist lst;
+// lst is an empty Wordlist object
+```
+
+Write a destructor for `Wordlist` that de-allocates all the nodes in the list.
+In `Wordlist_base`, the virtual destructor is called `~Wordlist_base()`. The one
+you write for `Wordlist` should be called `~Wordlist()`.
+
+### Testing Your Code
+
+You can use the `test_read()` function in [a1.cpp](a1.cpp) to test your code.
+For example, the file [small.txt](small.txt) contains the following text:
+
+```
+This is
+a test
+or is this 
+a test?
+
+```
+
+If you run the following code:
+
+```cpp
+// ...
+
+void test_read()
+{
+    Wordlist lst;
+    string w;
+    while (cin >> w)
+    {
+        lst.add_word(w);
+    }
+
+    lst.print_words();
+    cout << endl;
+    lst.print_stats();
+}
+
+int main() 
+{
+    test_read();
+}
+```
+
+Then the output when given [small.txt](small.txt) as input should be:
+
+```
+❯ ./a1_sol < small.txt
+1. {"This", 1}
+2. {"a", 2}
+3. {"is", 2}
+4. {"or", 1}
+5. {"test", 1}
+6. {"test?", 1}
+7. {"this", 1}
+
+Number of different words: 7
+    Total number of words: 9
+       Most frequent word: a 2
+     Number of singletons: 5 (71%)
+      Average word length: 3
+```
+
+Notice that case *matters*, e.g. `"This"` and `"this"` are counted a different
+words. Also, punctuation *matters*, e.g. `"test"` and `"test?"` are counted a
+different words.
+
+> **Note** In real life programs you might strip out punctuation and ignore
+> case, but in this assignment we want to count every word exactly as it appears
+> in the file. This makes the code a littler simpler, and more consistent across
+> students.
+
+Here's another example, using the larger file
+[tiny_shakespeare.txt](tiny_shakespeare.txt):
+
+```cpp
+❯ ./a1 < tiny_shakespeare.txt >sample_out
+```
+
+This could take a minute or two to run --- it's a big file and a singly-linked
+is *not* the fastest way to process data like this.
+
+Also, there's more than 25,000 line of output, and so `>tiny_shakespeare_out`
+prints the output to the file [tiny_shakespeare_out](tiny_shakespeare_out). It's
+contents look like this:
+
+```
+1. {"&C:", 2}
+...
+25670. {"zodiacs", 1}
+
+Number of different words: 25670
+    Total number of words: 202651
+       Most frequent word: the 5437
+     Number of singletons: 14919 (58%)
+      Average word length: 7
+```
+
+A good way to test your program is to use the Linux `diff` command to compare
+your output to the expected output:
+
+```bash
+> ./a1 < tiny_shakespeare.txt >out
+
+❯ diff out tiny_shakespeare_out
+
+```
+
+If `diff` prints nothing, then your output is identical to the expected output.
+Otherwise, it will print out each line that is different.
+
+
+## What to Submit
+
+When you're done, submit just [a1.cpp](a1.cpp) on Canvas. Don't submit anything
+else.
+
+A copy of [Wordlist_base.h](Wordlist_base.h) will be in the same folder as your
+[a1.cpp](a1.cpp) when it's compiled.
+
+The marker will compile your code on Ubuntu Linux using [makefile](makefile)
+and the following command:
+
+```bash
+> make a1
+g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virtual-dtor -g a1.cpp -o a1
+```
+
+This is a very strict compilation command! No warnings or errors are allowed!
+Make sure that your code compiles with this command before submitting it.
+
+## Grading
+
+The marker will test your code on at least one text file you have not seen
+before, and they will also test individual method calls using test functions you
+have not seen.
+
+Your program will also be run with `valgrind` to check for memory leaks, and
+other memory errors, e.g.:
+
+```bash
+> valgrind ./a1
+==13731== Memcheck, a memory error detector
+==13731== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==13731== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==13731== Command: ./a1_sol
+==13731== 
+1. {"This", 1}
+2. {"a", 2}
+3. {"is", 2}
+4. {"or", 1}
+5. {"test", 1}
+6. {"test?", 1}
+7. {"this", 1}
+
+Number of different words: 7
+    Total number of words: 9
+       Most frequent word: a 2
+     Number of singletons: 5 (71%)
+      Average word length: 3
+==13731== 
+==13731== HEAP SUMMARY:
+==13731==     in use at exit: 0 bytes in 0 blocks
+==13731==   total heap usage: 10 allocs, 10 frees, 78,160 bytes allocated
+==13731== 
+==13731== All heap blocks were freed -- no leaks are possible
+==13731== 
+==13731== For lists of detected and suppressed errors, rerun with: -s
+==13731== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```
+
+`valgrind` should report "no leaks are possible", and should *not* print any
+other errors.
+
+Be sure to test your program, and run it with `valgrind`, before submitting it.
+
+## Marking Scheme
+
+### Methods: 22 marks
+
+- **2 marks** for each virtual method in `Wordlist_base` that is implemented
+  correctly.
+- **2 marks** for a default constructor that creates an empty `Wordlist` object.
+
+### Overall source code readability: 5 marks
+
+- All code is sensibly and consistently indented, and all lines are 100
+  characters in length, or less.
+- Whitespace is used to group related pieces of a code to make it easier for
+  humans to read. All whitespace has a purpose.
+- Variable and function names are self-descriptive.
+- Appropriate features of C++ are used, as discussed in class and in the notes.
+  **Note** If you use a feature that we haven't discussed in class, **you must
+  explain it in a comment**, even if you think it's obvious.
+- Comments are used when needed to explain code whose purpose is not obvious
+  from the code itself. There should be *no* commented-out code from previous
+  versions.
+
+### Deductions
+
+- **a score of 0** if you change `Node` is ways that are not allowed, if you
+  modify anything in `Wordlist_base`, or if you use a vector, array, or any
+  other data structure other than a singly-linked list.
+- at least **-1 mark** if your file has an incorrect name, or you submit it in
+  the incorrect format, etc.
+- up to **-3 marks** if you do not include your full name, email, and SFU ID in
+  the header of your file.
+- **a score of 0** if you don't include the "statement of originality, or its
+  modified in any way.
+- **a score of 0** if you submit a "wrong" non-working file, and then *after the
+  due date* submit the "right" file. If you can provide evidence that you
+  finished the assignment on time, then it may be marked.
+
+## Hints
+
+Use the `is_sorted()` method to check that your list is sorted. For instance,
+put `assert(is_sorted());` at the end of `add_word()` to check that the list is
+always in sorted order.
+
+Test as you go! When you write a method, add a few test cases for it, e.g. using
+`assert` or if/then.
+
