@@ -25,8 +25,8 @@ Number of different words: 25670
 
 ## Getting Started
 
-All the code you write goes in [a1.cpp](a1.cpp). [a1.cpp](a1.cpp) has some code
-already written, plus some comments that explain what you need to do.  
+All the code you write goes in [a1.cpp](a1.cpp). To help you out,
+[a1.cpp](a1.cpp) has some code and comments that explain what you need to do.  
 
 ### Implement the Methods in Wordlist_base
 
@@ -188,7 +188,7 @@ have not seen.
 Your program will also be run with `valgrind` to check for memory leaks, and
 other memory errors, e.g.:
 
-```bash
+```
 > valgrind ./a1
 ==13731== Memcheck, a memory error detector
 ==13731== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
