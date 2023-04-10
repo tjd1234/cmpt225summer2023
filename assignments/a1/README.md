@@ -19,7 +19,6 @@ Number of different words: 25670
     Total number of words: 202651
        Most frequent word: the 5437
      Number of singletons: 14919 (58%)
-      Average word length: 7
 ```
 
 
@@ -123,7 +122,6 @@ Number of different words: 7
     Total number of words: 9
        Most frequent word: a 2
      Number of singletons: 5 (71%)
-      Average word length: 3
 ```
 
 Notice that case *matters*, e.g. `"This"` and `"this"` are counted as different
@@ -158,7 +156,6 @@ Number of different words: 25670
     Total number of words: 202651
        Most frequent word: the 5437
      Number of singletons: 14919 (58%)
-      Average word length: 7
 ```
 
 A good way to test your program is to use the Linux `diff` command to compare
@@ -223,7 +220,6 @@ Number of different words: 7
     Total number of words: 9
        Most frequent word: a 2
      Number of singletons: 5 (71%)
-      Average word length: 3
 ==13731== 
 ==13731== HEAP SUMMARY:
 ==13731==     in use at exit: 0 bytes in 0 blocks

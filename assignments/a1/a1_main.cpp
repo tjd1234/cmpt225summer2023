@@ -15,7 +15,6 @@
 //        Total number of words: 202651
 //           Most frequent word: the 5437
 //         Number of singletons: 14919 (58%)
-//          Average word length: 7
 //
 // void test_read()
 // {

@@ -41,10 +41,6 @@ struct Wordlist_base
     // Returns the number of nodes with count 1.
     virtual int num_singletons() const = 0;
 
-    // Returns the average word length, i.e. the total number of characters in
-    // all words divided by the number of nodes.
-    virtual double average_word_length() const = 0;
-
     // Adds w to the word list. If w is already in the list, then increment its
     // count, otherwise add a new Node (with count 1) at the alphabetically
     // correct location.
@@ -60,7 +56,6 @@ struct Wordlist_base
              << setprecision(0) << fixed
              << " (" << 100.0 * num_singletons() / num_different_words() << "%)"
              << endl;
-        cout << "      Average word length: " << average_word_length() << endl;
     }
 
     // Prints the words in the list in ascending sorted order with their counts.
