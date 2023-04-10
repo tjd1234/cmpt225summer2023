@@ -1,9 +1,9 @@
 ## Assignment 1: Word Lists
 
-In this assignment, your task is to create a class that counts how many times
+In this assignment, create a class called `Wordlist` that counts how many times
 each word appears in a file. The class *must* use a **singly-linked list** as
-its underlying representation --- vectors, arrays, or other containers are *not*
-allowed.
+its underlying representation --- vectors, arrays, or other container data
+structures are *not* allowed.
 
 When it's done, you'll be able to write code like this:
 
@@ -12,7 +12,7 @@ Wordlist lst("tiny_shakespeare.txt");
 lst.print_stats();
 ```
 
-This prints:
+Which prints:
 
 ```
 Number of different words: 25670
@@ -25,39 +25,54 @@ Number of different words: 25670
 
 ## Getting Started
 
-All the code you write goes in [a1.cpp](a1.cpp). To help you out,
-[a1.cpp](a1.cpp) has some code and comments that explain what you need to do.  
+All the code you'll submit for this assignment goes in [Wordlist.h](Wordlist.h).
+*Don't* put `main` in [Wordlist.h](Wordlist.h). Instead, put `main` in
+[a1_main.cpp](a1_main.cpp), along with all the code you need to test your
+`Wordlist` class. 
+
+[a1_main.cpp](a1_main.cpp) includes [Wordlist.h](Wordlist.h), and there is also
+some sample code that you can use and extend for testing. 
+ 
 
 ### Implement the Methods in Wordlist_base
 
-Your task is to write a class named `Wordlist` that implements all the virtual
-methods in listed in the `Wordlist_base` class, in the file
-[Wordlist_base.h](Wordlist_base.h). Most of the methods in `Wordlist_base` are
+Write a class named `Wordlist`, in [Wordlist.h](Wordlist.h), that implements all
+the virtual methods listed in the `Wordlist_base` class (in
+[Wordlist_base.h](Wordlist_base.h)). Most of the methods in `Wordlist_base` are
 *virtual* and *abstract* methods, and so you *must* write your own version of
-them in `Wordlist`. A few methods, such as `print_stats`, have implementations
-that you *can't* change in `Wordlist`, i.e. your `Wordlist` class must use them
-as given.
+them in `Wordlist`. A few methods, such as `print_stats`, that are *not*
+`virtual` and have implementations that you *can't* change, i.e. your `Wordlist`
+class must work correctly with them as given.
 
 Do **not** change [Wordlist_base.h](Wordlist_base.h) in any way: keep it as-is.
 
+Write your implementation of `Wordlist` in [Wordlist.h](Wordlist.h). It must
+publicly inherit from `Wordlist_base`, and use the `Node` `struct` (given in
+`Wordlist`) to implement a singly-linked list. **Don't** use vectors, arrays, or
+any other data structures in [Wordlist.h](Wordlist.h).
+
+
 ### Implement a Default Constructor and Destructor
 
-In addition to the methods listed in `Wordlist_base`, also write a *default
-constructor* that takes no parameters and creates an empty `Wordlist` object:
+In addition to the methods listed in `Wordlist_base`, in `Wordlist` write a
+*default constructor* that takes no parameters and creates an empty `Wordlist`
+object:
 
 ```cpp
 Wordlist lst;
 // lst is an empty Wordlist object
 ```
 
-Write a destructor for `Wordlist` that de-allocates all the nodes in the list.
-In `Wordlist_base`, the virtual destructor is called `~Wordlist_base()`. The one
-you write for `Wordlist` should be called `~Wordlist()`.
+Also write a destructor for `Wordlist` that de-allocates all the nodes in the
+list. In `Wordlist_base`, the virtual destructor is called `~Wordlist_base()`,
+and the one you write for `Wordlist` should be called `~Wordlist()`.
+
 
 ### Testing Your Code
 
-You can use the `test_read()` function in [a1.cpp](a1.cpp) to test your code.
-For example, the file [small.txt](small.txt) contains the following text:
+You can use the `test_read()` function in [a1_main.cpp](a1_main.cpp) to test
+your code. For example, the file [small.txt](small.txt) contains the following
+text:
 
 ```
 This is
@@ -95,7 +110,7 @@ int main()
 Then the output when given [small.txt](small.txt) as input should be:
 
 ```
-❯ ./a1_sol < small.txt
+❯ ./a1_main < small.txt
 1. {"This", 1}
 2. {"a", 2}
 3. {"is", 2}
@@ -111,28 +126,28 @@ Number of different words: 7
       Average word length: 3
 ```
 
-Notice that case *matters*, e.g. `"This"` and `"this"` are counted a different
-words. Also, punctuation *matters*, e.g. `"test"` and `"test?"` are counted a
-different words.
+Notice that case *matters*, e.g. `"This"` and `"this"` are counted as different
+words. Also, punctuation *matters*, e.g. `"test"` and `"test?"` are counted as
+different.
 
 > **Note** In real life programs you might strip out punctuation and ignore
 > case, but in this assignment we want to count every word exactly as it appears
 > in the file. This makes the code a littler simpler, and more consistent across
 > students.
 
-Here's another example, using the larger file
+Here's another example using the larger file
 [tiny_shakespeare.txt](tiny_shakespeare.txt):
 
 ```cpp
-❯ ./a1 < tiny_shakespeare.txt >sample_out
+❯ ./a1_main < tiny_shakespeare.txt >sample_out
 ```
 
 This could take a minute or two to run --- it's a big file and a singly-linked
-is *not* the fastest way to process data like this.
+is *not* the fastest way to implement `Wordlist`.
 
-Also, there's more than 25,000 line of output, and so `>tiny_shakespeare_out`
-prints the output to the file [tiny_shakespeare_out](tiny_shakespeare_out). It's
-contents look like this:
+There's more than 25,000 line of output, and so the example uses
+`>tiny_shakespeare_out` to print the output to the file
+[tiny_shakespeare_out](tiny_shakespeare_out). It's contents looks like this:
 
 ```
 1. {"&C:", 2}
@@ -147,53 +162,54 @@ Number of different words: 25670
 ```
 
 A good way to test your program is to use the Linux `diff` command to compare
-your output to the expected output:
+your output to this expected output:
 
 ```bash
-> ./a1 < tiny_shakespeare.txt >out
+> ./a1_main < tiny_shakespeare.txt >out
 
 ❯ diff out tiny_shakespeare_out
 
 ```
 
-If `diff` prints nothing, then your output is identical to the expected output.
-Otherwise, it will print out each line that is different.
+If `diff` prints nothing, then the two files are identical. Otherwise, it will
+print out each line that is different.
 
 
 ## What to Submit
 
-When you're done, submit just [a1.cpp](a1.cpp) on Canvas. Don't submit anything
-else.
+When you're done, submit just [Wordlist.h](Wordlist.h) on Canvas. Don't submit
+anything else. A copy of [Wordlist_base.h](Wordlist_base.h) will be in the same
+folder as your [Wordlist.h](Wordlist.h) when it's compiled.
 
-A copy of [Wordlist_base.h](Wordlist_base.h) will be in the same folder as your
-[a1.cpp](a1.cpp) when it's compiled.
-
-The marker will compile your code on Ubuntu Linux using [makefile](makefile)
+The marker will test your [Wordlist.h](Wordlist.h) using their own `a1_main.cpp`
+file that will include your [Wordlist.h](Wordlist.h), and will test the methods
+in it. They will compile your code on Ubuntu Linux using [makefile](makefile)
 and the following command:
 
 ```bash
-> make a1
-g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virtual-dtor -g a1.cpp -o a1
+> make a1_main
+g++ -O3 -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virtual-dtor -g a1_main.cpp -o a1_main
 ```
 
 This is a very strict compilation command! No warnings or errors are allowed!
 Make sure that your code compiles with this command before submitting it.
 
+
 ## Grading
 
-The marker will test your code on at least one text file you have not seen
-before, and they will also test individual method calls using test functions you
-have not seen.
+The marker will test the correctness of your code on at least one text file you
+have not seen before, and they will also test individual method calls using test
+functions you have not seen.
 
 Your program will also be run with `valgrind` to check for memory leaks, and
 other memory errors, e.g.:
 
-```
-> valgrind ./a1
+```bash
+> valgrind ./a1_main
 ==13731== Memcheck, a memory error detector
 ==13731== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
 ==13731== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==13731== Command: ./a1_sol
+==13731== Command: ./a1_main
 ==13731== 
 1. {"This", 1}
 2. {"a", 2}
@@ -224,13 +240,19 @@ other errors.
 
 Be sure to test your program, and run it with `valgrind`, before submitting it.
 
+
 ## Marking Scheme
 
-### Methods: 22 marks
+### Methods: 26 marks
 
-- **2 marks** for each virtual method in `Wordlist_base` that is implemented
-  correctly.
+- **2 marks** for each of the 11 virtual methods in `Wordlist_base` that is
+  implemented correctly.
 - **2 marks** for a default constructor that creates an empty `Wordlist` object.
+- **2 marks** for a constructor that takes the name of a file as input, and adds
+  all the words in that file to a `Wordlist` object. Read the words from the
+  file using C++'s standard `<<` operator (the first example at the top of this
+  assignment shows how this constructor should work, and what its output ought
+  to be).
 
 ### Overall source code readability: 5 marks
 
@@ -269,4 +291,3 @@ always in sorted order.
 
 Test as you go! When you write a method, add a few test cases for it, e.g. using
 `assert` or if/then.
-
