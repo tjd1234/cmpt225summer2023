@@ -174,14 +174,13 @@ print out each line that is different.
 
 ## What to Submit
 
-When you're done, submit just [Wordlist.h](Wordlist.h) on Canvas. Don't submit
-anything else. A copy of [Wordlist_base.h](Wordlist_base.h) will be in the same
-folder as your [Wordlist.h](Wordlist.h) when it's compiled.
+When you're done, submit just your [Wordlist.h](Wordlist.h) on Canvas. Don't
+submit anything else. A copy of [Wordlist_base.h](Wordlist_base.h) will be in
+the same folder as your [Wordlist.h](Wordlist.h) when it's compiled.
 
-The marker will test your [Wordlist.h](Wordlist.h) using their own `a1_main.cpp`
-file that will include your [Wordlist.h](Wordlist.h), and will test the methods
-in it. They will compile your code on Ubuntu Linux using [makefile](makefile)
-and the following command:
+The marker will use their own `a1_main.cpp` file that will include your
+[Wordlist.h](Wordlist.h), and will test the methods in it. They will compile
+your code on Ubuntu Linux using [makefile](makefile) and the following command:
 
 ```bash
 > make a1_main
@@ -199,7 +198,7 @@ have not seen before, and they will also test individual method calls using test
 functions you have not seen.
 
 Your program will also be run with `valgrind` to check for memory leaks, and
-other memory errors, e.g.:
+other memory errors, e.gw.:
 
 ```bash
 > valgrind ./a1_main
