@@ -32,6 +32,10 @@ All the code you'll submit for this assignment goes in [Wordlist.h](Wordlist.h).
 [a1_main.cpp](a1_main.cpp) includes [Wordlist.h](Wordlist.h), and there is also
 some sample code that you can use and extend for testing. 
  
+> **Note:** You can download all this files in a single .zip archive from the
+> [Github repository for the course](https://github.com/tjd1234/cmpt225summer2023).
+> Click on the green "Code" button, and then click on "Download ZIP".
+
 
 ### Implement the Methods in Wordlist_base
 
