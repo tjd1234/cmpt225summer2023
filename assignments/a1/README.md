@@ -29,8 +29,8 @@ All the code you'll submit for this assignment goes in [Wordlist.h](Wordlist.h).
 [a1_main.cpp](a1_main.cpp), along with all the code you need to test your
 `Wordlist` class. 
 
-[a1_main.cpp](a1_main.cpp) includes [Wordlist.h](Wordlist.h), and there is also
-some sample code that you can use and extend for testing. 
+Use [a1_main.cpp](a1_main.cpp) (includes [Wordlist.h](Wordlist.h)) for testing
+your code.
  
 > **Note:** You can download all this files in a single .zip archive from the
 > [Github repository for the course](https://github.com/tjd1234/cmpt225summer2023).
@@ -39,20 +39,23 @@ some sample code that you can use and extend for testing.
 
 ### Implement the Methods in Wordlist_base
 
-Write a class named `Wordlist`, in [Wordlist.h](Wordlist.h), that implements all
+[Wordlist.h](Wordlist.h) has the class `Wordlist` where you should implement all
 the virtual methods listed in the `Wordlist_base` class (in
-[Wordlist_base.h](Wordlist_base.h)). Most of the methods in `Wordlist_base` are
-*virtual* and *abstract* methods, and so you *must* write your own version of
-them in `Wordlist`. A few methods, such as `print_stats`, that are *not*
-`virtual` and have implementations that you *can't* change, i.e. your `Wordlist`
-class must work correctly with them as given.
+[Wordlist_base.h](Wordlist_base.h)). 
+
+Most of the methods in `Wordlist_base` are *virtual* and *abstract* methods, and
+so you *must* write your own version of them in `Wordlist`. A few methods, such
+as `print_stats`, are *not* `virtual` and have implementations that you *can't*
+change, i.e. your `Wordlist` class must work correctly with them as given.
 
 Do **not** change [Wordlist_base.h](Wordlist_base.h) in any way: keep it as-is.
 
 Write your implementation of `Wordlist` in [Wordlist.h](Wordlist.h). It must
 publicly inherit from `Wordlist_base`, and use the `Node` `struct` (given in
-`Wordlist`) to implement a singly-linked list. **Don't** use vectors, arrays, or
-any other data structures in [Wordlist.h](Wordlist.h).
+`Wordlist`) to implement a singly-linked list. 
+
+> **Don't** use vectors, arrays, or any other data structures in
+> [Wordlist.h](Wordlist.h).
 
 
 ### Implement a Default Constructor and Destructor
@@ -63,19 +66,19 @@ object:
 
 ```cpp
 Wordlist lst;
-// lst is an empty Wordlist object
+
+// ... lst is an empty Wordlist object ...
 ```
 
 Also write a destructor for `Wordlist` that de-allocates all the nodes in the
-list. In `Wordlist_base`, the virtual destructor is called `~Wordlist_base()`,
-and the one you write for `Wordlist` should be called `~Wordlist()`.
+list. In `Wordlist_base`, the destructor is called `~Wordlist_base()`, and the
+one you write for `Wordlist` should be called `~Wordlist()`.
 
 
 ### Testing Your Code
 
 You can use the `test_read()` function in [a1_main.cpp](a1_main.cpp) to test
-your code. For example, the file [small.txt](small.txt) contains the following
-text:
+your code. For example, [small.txt](small.txt) contains the following text:
 
 ```
 This is
@@ -110,7 +113,7 @@ int main()
 }
 ```
 
-Then the output when given [small.txt](small.txt) as input should be:
+Then the output for [small.txt](small.txt) is:
 
 ```
 ❯ ./a1_main < small.txt
@@ -128,9 +131,9 @@ Number of different words: 7
      Number of singletons: 5 (71%)
 ```
 
-Notice that case *matters*, e.g. `"This"` and `"this"` are counted as different
-words. Also, punctuation *matters*, e.g. `"test"` and `"test?"` are counted as
-different.
+Notice that *case matters*, e.g. `"This"` and `"this"` are counted as
+*different* words. Also, punctuation *matters*, e.g. `"test"` and `"test?"` are
+counted as different.
 
 > **Note** In real life programs you might strip out punctuation and ignore
 > case, but in this assignment we want to count every word exactly as it appears
@@ -141,15 +144,15 @@ Here's another example using the larger file
 [tiny_shakespeare.txt](tiny_shakespeare.txt):
 
 ```cpp
-❯ ./a1_main < tiny_shakespeare.txt >sample_out
+❯ ./a1_main < tiny_shakespeare.txt >tiny_shakespeare_out
 ```
 
 This could take a minute or two to run --- it's a big file and a singly-linked
 is *not* the fastest way to implement `Wordlist`.
 
-There's more than 25,000 line of output, and so the example uses
+There's more than 25,000 lines of output, and so the example uses
 `>tiny_shakespeare_out` to print the output to the file
-[tiny_shakespeare_out](tiny_shakespeare_out). It's contents looks like this:
+[tiny_shakespeare_out](tiny_shakespeare_out):
 
 ```
 1. {"&C:", 2}
@@ -172,8 +175,8 @@ your output to this expected output:
 
 ```
 
-If `diff` prints nothing, then the two files are identical. Otherwise, it will
-print out each line that is different.
+If `diff` prints nothing, then the two files are identical. Otherwise, it prints
+each pair of different lines.
 
 
 ## What to Submit
@@ -182,9 +185,9 @@ When you're done, submit just your [Wordlist.h](Wordlist.h) on Canvas. Don't
 submit anything else. A copy of [Wordlist_base.h](Wordlist_base.h) will be in
 the same folder as your [Wordlist.h](Wordlist.h) when it's compiled.
 
-The marker will use their own `a1_main.cpp` file that will include your
-[Wordlist.h](Wordlist.h), and will test the methods in it. They will compile
-your code on Ubuntu Linux using [makefile](makefile) and the following command:
+The marker will use their own `a1_main.cpp` that will include your
+[Wordlist.h](Wordlist.h) and will test the methods in it. They will compile your
+code on Ubuntu Linux using [makefile](makefile), which runs this command:
 
 ```bash
 > make a1_main
