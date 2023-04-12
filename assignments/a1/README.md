@@ -135,7 +135,7 @@ Notice that *case matters*, e.g. `"This"` and `"this"` are counted as
 *different* words. Also, punctuation *matters*, e.g. `"test"` and `"test?"` are
 counted as different.
 
-> **Note** In real life programs you might strip out punctuation and ignore
+> **Note** Real life programs would likely strip out punctuation and ignore
 > case, but in this assignment we want to count every word exactly as it appears
 > in the file. This makes the code a littler simpler, and more consistent across
 > students.
@@ -205,7 +205,7 @@ have not seen before, and they will also test individual method calls using test
 functions you have not seen.
 
 Your program will also be run with `valgrind` to check for memory leaks, and
-other memory errors, e.gw.:
+other memory errors, e.g.:
 
 ```bash
 > valgrind ./a1_main
@@ -287,9 +287,9 @@ Be sure to test your program, and run it with `valgrind`, before submitting it.
 
 ## Hints
 
-Use the `is_sorted()` method to check that your list is sorted. For instance,
-put `assert(is_sorted());` at the end of `add_word()` to check that the list is
-always in sorted order.
+A good way to catch bugs is to put `assert(is_sorted());` at the end of
+`add_word()`. Then every time you add a word it will check that the list is in
+sorted order.
 
 Test as you go! When you write a method, add a few test cases for it, e.g. using
 `assert` or if/then.
