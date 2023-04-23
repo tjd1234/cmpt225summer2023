@@ -88,9 +88,9 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
 Running your program with `valgrind` is important, since it will help you find
 memory leaks, and other memory-related errors.
 
-> **Note** There should be *no* errors when you run this testing! If you find
-> have any, double-check that you are running exactly the correct file, and
-> using the correct compiler options.
+> **Note** There should be *no* errors when you run this testing! If you have
+> any, double-check that you are running exactly the correct file, and using the
+> correct compiler version, correct options, and correct [makefile](makefile).
 
 ## Designing the Undo Stack
 
