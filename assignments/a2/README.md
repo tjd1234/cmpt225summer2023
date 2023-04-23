@@ -37,8 +37,8 @@ Your implementation must follow these rules:
 - You **can** add other helper methods (public or private), functions, and
   classes/structs to [Stringlist.h](Stringlist.h) if you need them.
 - Implement `undo()` using at *private stack* that is accessible only inside the
-  `Stringlist` class. **Implement the stack yourself as a singly-linked list**.
-  Do **not** use arrays, vectors, or any other data structure for your stack.
+  `Stringlist` class. **Implement the stack yourself as a linked list**. Do
+  **not** use arrays, vectors, or any other data structure for your stack.
 - Do **not** use any other #includes or #pragmas in [Stringlist.h](Stringlist.h)
   other than the ones already there.
 
@@ -95,8 +95,8 @@ memory leaks, and other memory-related errors.
 ## Designing the Undo Stack
 
 As mentioned above, you must implement `undo()` using at least one *private
-stack* implemented as a singly-linked list inside the `Stringlist` class. You
-can modify `Stringlist` only as described at the start of this assignment.
+stack* implemented as a linked list inside the `Stringlist` class. You can
+modify `Stringlist` only as described at the start of this assignment.
 
 One idea for how undo can work is that every time `Stringlist` is modified by
 one of its methods, it *pushes* the *inverse* operation on the top of an undo
@@ -304,6 +304,9 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
 ... valgrind output ...
 ```
 
+If the marker can't compile your program, then you will get 0 marks for the
+assignment.
+
 The markers `a2_test.cpp` will contain their tests (that you have probably not
 seen before) to check the correctness of you `Stringlist`. `a2_test.cpp` will
 #include your [Stringlist.h](Stringlist.h), and it should run without needing
@@ -323,7 +326,7 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
 ```
 
 > **Note** The compilation commands are quite strict! Make sure your program
-> compiles with no warnings or errors before submitting it.
+> compiles with them before submitting it.
 
 ## Marking Scheme
 
@@ -366,7 +369,7 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
   stack.
 - up to **-3 marks** if you do not include your full name, email, and SFU ID in
   the header of your file.
-- **a score of 0** if you don't include the "statement of originality, or it is
+- **a score of 0** if you don't include the "Statement of Originality", or it is
   modified in any way.
 - **a score of 0** if you submit a "wrong" non-working file, and then *after the
   due date* submit the "right" file. If you can provide evidence that you
