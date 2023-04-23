@@ -101,6 +101,8 @@ public:
     //
     // Copy constructor: makes a copy of the given StringList.
     //
+    // Does *not* copy the undo stack, or any undo information from other.
+    //
     Stringlist(const Stringlist &other)
         : cap(other.cap), arr(new string[cap]), sz(other.sz)
     {
@@ -119,6 +121,21 @@ public:
     // Assignment operator: makes a copy of the given StringList.
     //
     // undoable
+    //
+    // For undoing, when assignment different lists, the undo stack is not
+    // copied:
+    //
+    //    lst1 = lst2; // lst1 undo stack is updated to be able to undo the //
+    //    assignment; lst1 does not copy lst2's stack
+    //    //
+    //    // lst2 is not change in any way
+    //
+    // Self-assignment is when you assign a list to itself:
+    //
+    //    lst1 = lst1;
+    //
+    // In this case, nothing happens to lst1. Nothing is changed. Both its
+    // stirng data and undo stack are left as-is.
     //
     Stringlist &operator=(const Stringlist &other)
     {
@@ -292,26 +309,26 @@ public:
         return true;
     }
 
-    //
-    // Removes all occurrences of s in the list, and returns the number of items
-    // removed.
-    //
-    // undoable
-    //
-    int remove_all(const string &s)
-    {
-        int count = 0;
-        for (int i = 0; i < sz; i++)
-        {
-            if (arr[i] == s)
-            {
-                remove_at(i);
-                count++;
-                i--;
-            }
-        }
-        return count;
-    }
+    // //
+    // // Removes all occurrences of s in the list, and returns the number of items
+    // // removed.
+    // //
+    // // undoable
+    // //
+    // int remove_all(const string &s)
+    // {
+    //     int count = 0;
+    //     for (int i = 0; i < sz; i++)
+    //     {
+    //         if (arr[i] == s)
+    //         {
+    //             remove_at(i);
+    //             count++;
+    //             i--;
+    //         }
+    //     }
+    //     return count;
+    // }
 
     //
     // Undoes the last operation that modified the list. Returns true if a
@@ -338,6 +355,9 @@ ostream &operator<<(ostream &os, const Stringlist &lst)
 //
 // Returns true if the two lists are equal, false otherwise.
 //
+// Does *not* consider any undo information when comparing two Stringlists. All
+// that matters is that they have the same strings in the same order.
+//
 bool operator==(const Stringlist &a, const Stringlist &b)
 {
     if (a.size() != b.size())
@@ -356,6 +376,8 @@ bool operator==(const Stringlist &a, const Stringlist &b)
 
 //
 // Returns true if the two lists are not equal, false otherwise.
+//
+// Does *not* consider any undo information when comparing two Stringlists.
 //
 bool operator!=(const Stringlist &a, const Stringlist &b)
 {

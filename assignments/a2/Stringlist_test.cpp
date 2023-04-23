@@ -316,47 +316,6 @@ void test_remove_first()
     assert(lst.to_string() == "{\"B\", \"A\"}");
 }
 
-void test_remove_all_string()
-{
-    Test("remove_all_string");
-    Stringlist lst;
-    lst.remove_all("A");
-    assert(lst.empty());
-    assert(lst.to_string() == "{}");
-
-    lst.insert_back("A");
-    lst.remove_all("A");
-    assert(lst.empty());
-    assert(lst.to_string() == "{}");
-
-    lst.remove_all();
-    lst.insert_back("A");
-    lst.insert_back("A");
-    lst.remove_all("A");
-    assert(lst.empty());
-    assert(lst.to_string() == "{}");
-
-    lst.remove_all();
-    lst.insert_back("A");
-    lst.insert_back("B");
-    lst.insert_back("A");
-    lst.remove_all("A");
-    assert(lst.size() == 1);
-    assert(lst.to_string() == "{\"B\"}");
-
-    lst.remove_all();
-    lst.insert_back("A");
-    lst.insert_back("B");
-    lst.insert_back("A");
-    lst.remove_all("B");
-    assert(lst.size() == 2);
-    assert(lst.to_string() == "{\"A\", \"A\"}");
-
-    lst.remove_all("C");
-    assert(lst.size() == 2);
-    assert(lst.to_string() == "{\"A\", \"A\"}");
-}
-
 void test_to_string()
 {
     Test("to_string");
@@ -410,7 +369,6 @@ int main()
     test_remove_at();
     test_remove_all();
     test_remove_first();
-    test_remove_all_string();
     test_to_string();
     test_equals();
 

@@ -5,8 +5,8 @@
 In this assignment, your task is to add an *undo* feature to a list of strings.
 
 To start, here's a working class called [Stringlist](Stringlist.h) that
-implements a simple string list. There are also  a set of tests in
-[Stringlist_test.cpp](Stringlist_test.cpp) that should all pass for it.
+implements a simple string list. [Stringlist_test.cpp](Stringlist_test.cpp) has
+tests for all the methods in [Stringlist](Stringlist.h).
 
 `Stringlist` has one unimplemented method:
 
@@ -26,7 +26,7 @@ Your job is to implement `undo`, thus making `Stringlist` an *undoable* list.
 
 Your implementation must follow these rules:
 
-- Do **not** delete any methods, or change the *signatures* of any methods,
+- Do **not** delete any methods, or change the *signatures* of any methods in
   [Stringlist](Stringlist.h). **Your finished version of `Stringlist` with
   `undo` implement must still pass all the tests in
   [Stringlist_test.cpp](Stringlist_test.cpp)**.
@@ -34,45 +34,53 @@ Your implementation must follow these rules:
   they should still work the same way, i.e. your finished undoable version of
   `Stringlist` should still pass all the tests in
   [Stringlist_test.cpp](Stringlist_test.cpp).
-- You can add other helper methods (public or private) and functions if you like
-  to [Stringlist.h](Stringlist.h).
-- Implement `undo()` using at least one *private stack* that is accessible only
-  inside the `Stringlist` class. **Implement the stack yourself as a
-  singly-linked list**. Do **not** use arrays, vectors, or any other data
-  structure for your stack.
-- Do **not** use any other #includes or #pragmas.
+- You **can** add other helper methods (public or private), functions, and
+  classes/structs to [Stringlist.h](Stringlist.h) if you need them.
+- Implement `undo()` using at *private stack* that is accessible only inside the
+  `Stringlist` class. **Implement the stack yourself as a singly-linked list**.
+  Do **not** use arrays, vectors, or any other data structure for your stack.
+- Do **not** use any other #includes or #pragmas in [Stringlist.h](Stringlist.h)
+  other than the ones already there.
 
 When it's done, you'll be able to write code like this:
 
 ```cpp
-Stringlist lst;
-cout << lst << endl; // {}
+#include "Stringlist.h"
+#include <iostream>
 
-lst.add("one");
-lst.add("two");
-lst.add("three");
-cout << lst << endl; // {"one", "two", "three"}
+using namespace std;
 
-lst.undo();
-cout << lst << endl; // {"one", "two"}
+int main() {
+    Stringlist lst;
+    cout << lst << endl; // {}
 
-lst.undo();
-cout << lst << endl; // {"one"}
+    lst.add("one");
+    lst.add("two");
+    lst.add("three");
+    cout << lst << endl; // {"one", "two", "three"}
 
-lst.undo();
-cout << lst << endl; // {}
+    lst.undo();
+    cout << lst << endl; // {"one", "two"}
+
+    lst.undo();
+    cout << lst << endl; // {"one"}
+
+    lst.undo();
+    cout << lst << endl; // {}
+}
 ```
-
 
 ## Getting Started with `StringList`
 
-Download all the files for this assignment to your computer, and then compile
-and run [Stringlist_test.cpp](Stringlist_test.cpp) to make sure it runs without
-error:
+To start, [download all the files for this
+assignment](https://github.com/tjd1234/cmpt225summer2023/tree/main/assignments/a2)
+to your computer, and then compile and run
+[Stringlist_test.cpp](Stringlist_test.cpp) to make sure it runs without error:
 
 ```bash
 > make Stringlist_test
 g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virtual-dtor -g Stringlist_test.cpp -o Stringlist_test
+
 > valgrind ./Stringlist_test
 ... test output ...
 ```
@@ -80,27 +88,24 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
 Running your program with `valgrind` is important, since it will help you find
 memory leaks, and other memory-related errors.
 
-> There should be on errors when you run this program! If you find one,
-> double-check that you are running exactly the correct file, and using the
-> correct compiler options.
+> **Note** There should be *no* errors when you run this testing! If you find
+> have any, double-check that you are running exactly the correct file, and
+> using the correct compiler options.
 
 ## Designing the Undo Stack
 
-As mentioned above, you are required to implement `undo()` using at least one
-*private stack* implemented as a singly-linked list inside the `Stringlist`
-class. You can modify `Stringlist` only as described at the start of this
-assignment.
+As mentioned above, you must implement `undo()` using at least one *private
+stack* implemented as a singly-linked list inside the `Stringlist` class. You
+can modify `Stringlist` only as described at the start of this assignment.
 
 One idea for how undo can work is that every time `Stringlist` is modified by
 one of its methods, it *pushes* the *inverse* operation on the top of an undo
 stack. When `undo()` is called, it *pops* the top of the stack and applies that
 operation to the list thus undoing the most recent operation.
 
-**Important** `undo()` cannot be undone. There is no "re-do" feature in this
-assignment.
-
-All the methods in [Stringlist](Stringlist.h) marked "undoable" should work with
-`undo()`. Here are a few examples.
+**Important** All the methods in [Stringlist](Stringlist.h) marked "undoable"
+should work with `undo()`. `undo()` cannot be undone: there is no "re-do"
+feature in this assignment.
 
 Here are some examples of how specific methods should work.
 
@@ -175,6 +180,7 @@ lst.undo();
 // lst == {"dog", "cat", "tree"}
 ```
 
+
 ### Undoing `operator=`
 
 For `operator=`, suppose `lst1` is `{"dog", "cat", "tree"}`, and `lst2` is
@@ -201,8 +207,61 @@ lst1.undo();
 // lst2 == {"yellow", "green", "red", "orange"}
 ```
 
-**Important** When `lst2` is assigned to `lst1`, just the string contents of
-`lst2` are copied into `lst1`. The undo stack of `lst2` is *not* copied.
+As this shows, when you undo `operator=`, the *entire* list of strings is
+restored in one call to `undo()`. 
+
+**Important** notes:
+
+- If `lst1` and `lst2` are different objects, then when `lst2` is assigned to
+  `lst1` just the underlying string array of `lst2` is copied to `lst1`. The
+  `lst1` undo stack is updated so that it can undo the assignment. The undo
+  stack of `lst2` is *not* copied, and `lst2` is not modified in any away.
+
+- *Self-assignment* is when you assign a list to itself, e.g. `lst1 = lst1;`. In
+  this case, *nothing* happens to `lst1`. Both its string data and undo stack
+  are left as-is.
+
+### Undoing `remove_all`
+
+For `remove_all`, suppose `lst` is `{"dog", "cat", "tree"}`. If you call
+`lst.remove_all()`, then you should push the operation *set `lst1` to `{"dog",
+"cat", "tree"}`* onto the stack, and then remove all the strings from `lst`
+(i.e. its size is 0). You could format the command as `"SET lst1 dog cat tree"`.
+Calling `lst1.undo()` pops the command on top of the stack and applies it to the
+list, e.g. `lst` is set to `{"dog", "cat", "tree"}` and the list is in the state
+it was in before calling `remove_all`: `{"dog", "cat", "tree"}`.
+
+In code:
+
+```cpp
+// lst == {"dog", "cat", "tree"}
+
+lst.remove_all();
+// lst == {}
+
+lst.undo();
+// lst == {"dog", "cat", "tree"}
+```
+
+Note that it should work the same way when `lst` is empty:
+
+```cpp  
+// lst == {}
+
+lst.remove_all();
+// lst == {}
+
+lst.undo();
+// lst == {}
+```
+
+### Undoing Other Methods
+
+`undo()` should undo all the other methods in [Stringlist](Stringlist.h) that
+are marked as "undoable" in the source code comments.
+
+As mentioned above, `undo()` is *not* undoable. There is no "re-do" feature in
+this assignment.
 
 
 ### Testing Your Code
@@ -268,8 +327,10 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
 
 ## Marking Scheme
 
-- **8 marks** One mark for for each function in [Stringlist.h](Stringlist.h)
-  marked "undoable" that works correctly with `undo()`.
+- **9 marks** One mark for for each method in [Stringlist.h](Stringlist.h)
+  marked "undoable" that works correctly with `undo()`. This also includes the
+  correct behaviour for the `Stringlist` copy constructor (which should not copy
+  the undo stack).
 
 - **5 marks** The markers tests run with no memory leaks according to
   `valgrind`.
