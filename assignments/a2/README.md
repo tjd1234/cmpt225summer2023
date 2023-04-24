@@ -27,18 +27,16 @@ Your job is to implement `undo`, thus making `Stringlist` an *undoable* list.
 Your implementation must follow these rules:
 
 - Do **not** delete any methods, or change the *signatures* of any methods in
-  [Stringlist](Stringlist.h). **Your finished version of `Stringlist` with
-  `undo` implement must still pass all the tests in
-  [Stringlist_test.cpp](Stringlist_test.cpp)**.
-- You **can** change the *implementation* of existing methods if necessary. But
-  they should still work the same way, i.e. your finished undoable version of
-  `Stringlist` should still pass all the tests in
-  [Stringlist_test.cpp](Stringlist_test.cpp).
+  [Stringlist](Stringlist.h). You **can** change the *implementation* of
+  existing methods if necessary. But they should still work the same way.**Your
+  finished version of `Stringlist` with `undo` implement must still pass all the
+  tests in [Stringlist_test.cpp](Stringlist_test.cpp)**.
 - You **can** add other helper methods (public or private), functions, and
   classes/structs to [Stringlist.h](Stringlist.h) if you need them.
-- Implement `undo()` using at *private stack* that is accessible only inside the
-  `Stringlist` class. **Implement the stack yourself as a linked list**. Do
-  **not** use arrays, vectors, or any other data structure for your stack.
+- You **must** implement `undo()` using at *private stack* that is accessible
+  only inside the `Stringlist` class. **Implement the stack yourself as a linked
+  list**. Do **not** use arrays, vectors, or any other data structure for your
+  stack.
 - Do **not** use any other #includes or #pragmas in [Stringlist.h](Stringlist.h)
   other than the ones already there.
 
@@ -334,10 +332,8 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
   marked "undoable" that works correctly with `undo()`. This also includes the
   correct behaviour for the `Stringlist` copy constructor (which should not copy
   the undo stack).
-
 - **5 marks** The markers tests run with no memory leaks according to
   `valgrind`.
-
 - **5 marks** `Stringlist` passes all tests in
   [Stringlist_test.cpp](Stringlist_test.cpp).
 
