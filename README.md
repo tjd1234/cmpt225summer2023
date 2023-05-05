@@ -8,4 +8,4 @@
 
 # CMPT 225-D100 Burnaby Lecture Notes
 
-[Code, notes, etc. for the Burnaby lecture section](lecture_notes).
+[Code, notes, etc. for the Burnaby lecture section](lecture_notes/).
