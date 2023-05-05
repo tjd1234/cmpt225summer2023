@@ -33,7 +33,7 @@ Your implementation must follow these rules:
   tests in [Stringlist_test.cpp](Stringlist_test.cpp)**.
 - You **can** add other helper methods (public or private), functions, and
   classes/structs to [Stringlist.h](Stringlist.h) if you need them.
-- You **must** implement `undo()` using at *private stack* that is accessible
+- You **must** implement `undo()` using a *private stack* that is accessible
   only inside the `Stringlist` class. **Implement the stack yourself as a linked
   list**. Do **not** use arrays, vectors, or any other data structure for your
   stack.
