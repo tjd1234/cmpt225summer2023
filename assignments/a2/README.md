@@ -328,12 +328,12 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
 
 ## Marking Scheme
 
-- **9 marks** One mark for for each method in [Stringlist.h](Stringlist.h)
-  marked "undoable" that works correctly with `undo()`. This also includes the
-  correct behaviour for the `Stringlist` copy constructor (which should not copy
-  the undo stack).
-- **5 marks** The markers tests run with no memory leaks according to
-  `valgrind`.
+- **9 marks** One mark for each method in [Stringlist.h](Stringlist.h) marked
+  "undoable" that works correctly with `undo()`. This also includes the correct
+  behaviour for the `Stringlist` copy constructor (which should not copy the
+  undo stack).
+- **5 marks** The markers tests run correctly, including with no memory leaks
+  according to `valgrind`.
 - **5 marks** `Stringlist` passes all tests in
   [Stringlist_test.cpp](Stringlist_test.cpp).
 
