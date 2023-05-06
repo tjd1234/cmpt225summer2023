@@ -1,7 +1,7 @@
-// linked_list2.cpp
+// singly_linked_list2.cpp
 
 //
-// Like linked_lst1.cpp, but now inside of a class.
+// Like singly_linked_lst1.cpp, but now inside of a class.
 //
 
 #include <cassert>

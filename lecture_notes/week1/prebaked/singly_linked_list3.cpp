@@ -1,4 +1,4 @@
-// linked_list2.cpp
+// linked_list3.cpp
 
 //
 // Like linked_lst3.cpp, but with these methods:
