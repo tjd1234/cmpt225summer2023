@@ -48,7 +48,7 @@ void test_sum_to()
 // Post-condition:
 //    returns vec[begin] + vec[begin + 1] + ... + vec[end - 1]
 //
-int sum_vec(vector<int> &vec, int begin, int end)
+int sum_vec(const vector<int> &vec, int begin, int end)
 {
     if (begin == end)
     {
@@ -63,7 +63,7 @@ int sum_vec(vector<int> &vec, int begin, int end)
 //
 // Returns the sum of all elements in vec.
 //
-int sum_vec(vector<int> &vec)
+int sum_vec(const vector<int> &vec)
 {
     return sum_vec(vec, 0, vec.size());
 }

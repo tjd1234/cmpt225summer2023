@@ -212,10 +212,7 @@ void test_sum_vec1()
 double sum_vec2(const vector<double> &v)
 {
     double total = 0;
-    for (double x : v)
-    {
-        total += x;
-    }
+    for (double x : v) total += x;
     return total;
 }
 
