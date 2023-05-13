@@ -17,10 +17,11 @@ using namespace std;
 void solution1()
 {
     // using a constant makes it easy to change the array size
-    const int N = 3000;
+    const int N = 9;
 
     // make the array
-    int arr[N];
+    // int arr[N];
+    int* arr = new int[N];
 
     // initialize the array
     for (int i = 0; i < N; i++)
@@ -44,6 +45,8 @@ void solution1()
     {
         cout << "arr[" << i << "] = " << arr[i] << endl;
     }
+
+    delete[] arr;
 }
 
 void solution2()
@@ -107,7 +110,7 @@ void solution3()
 
 int main()
 {
-    // solution1();
+    solution1();
     // solution2();
     // solution3();
 }

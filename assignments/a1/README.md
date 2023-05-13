@@ -1,9 +1,9 @@
 ## Assignment 1: Word Lists
 
-In this assignment, create a class called `Wordlist` that counts how many times
-each word appears in a file. The class *must* use a **singly-linked list** as
-its underlying representation --- vectors, arrays, or other container data
-structures are *not* allowed.
+In this assignment, your task is to create a class called `Wordlist` that counts
+how many times each word appears in a file. The class *must* use a
+**singly-linked list** as its underlying representation --- vectors, arrays, or
+other container data structures are *not* allowed.
 
 When it's done, you'll be able to write code like this:
 
@@ -27,13 +27,13 @@ Number of different words: 25670
 All the code you'll submit for this assignment goes in [Wordlist.h](Wordlist.h).
 *Don't* put `main` in [Wordlist.h](Wordlist.h). Instead, put `main` in
 [a1_main.cpp](a1_main.cpp), along with all the code you need to test your
-`Wordlist` class. 
+`Wordlist` class.
 
-Use [a1_main.cpp](a1_main.cpp) (includes [Wordlist.h](Wordlist.h)) for testing
-your code.
+Use [a1_main.cpp](a1_main.cpp) (it includes [Wordlist.h](Wordlist.h)) for
+testing your code.
  
-> **Note:** You can download all this files in a single .zip archive from the
-> [Github repository for the course](https://github.com/tjd1234/cmpt225summer2023).
+> **Note** You can download all the files for this assignment in a single .zip
+> archive from the [Github repository for the course](https://github.com/tjd1234/cmpt225summer2023). 
 > Click on the green "Code" button, and then click on "Download ZIP".
 
 
@@ -77,8 +77,8 @@ one you write for `Wordlist` should be called `~Wordlist()`.
 
 ### Testing Your Code
 
-You can use the `test_read()` function in [a1_main.cpp](a1_main.cpp) to test
-your code. For example, [small.txt](small.txt) contains the following text:
+Use the `test_read()` function in [a1_main.cpp](a1_main.cpp) to test your code.
+For example, [small.txt](small.txt) contains the following text:
 
 ```
 This is
@@ -88,7 +88,7 @@ a test?
 
 ```
 
-If you run the following code:
+When you run this code:
 
 ```cpp
 // ...
@@ -113,7 +113,7 @@ int main()
 }
 ```
 
-Then the output for [small.txt](small.txt) is:
+The output for [small.txt](small.txt) should be:
 
 ```
 ❯ ./a1_main < small.txt
@@ -136,9 +136,9 @@ Notice that *case matters*, e.g. `"This"` and `"this"` are counted as
 counted as different.
 
 > **Note** Real life programs would likely strip out punctuation and ignore
-> case, but in this assignment we want to count every word exactly as it appears
-> in the file. This makes the code a littler simpler, and more consistent across
-> students.
+> letter case, but in this assignment we want to count every word exactly as it
+> appears in the file. This makes the code a littler simpler, and more
+> consistent across students.
 
 Here's another example using the larger file
 [tiny_shakespeare.txt](tiny_shakespeare.txt):

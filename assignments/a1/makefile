@@ -1,4 +1,5 @@
 # Set the C++ compiler options:
+#   -O3 turns on optimization level 3 (maximizes speed)
 #   -std=c++17 compiles using the C++17 standard (or at least as 
 #    much as is implemented by the compiler, e.g. for g++ see
 #    http://gcc.gnu.org/projects/cxx0x.html)
