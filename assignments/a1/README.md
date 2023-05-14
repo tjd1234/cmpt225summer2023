@@ -58,7 +58,7 @@ publicly inherit from `Wordlist_base`, and use the `Node` `struct` (given in
 > [Wordlist.h](Wordlist.h).
 
 
-### Implement a Default Constructor and Destructor
+### Implement Constructors, and a Destructor
 
 In addition to the methods listed in `Wordlist_base`, in `Wordlist` write a
 *default constructor* that takes no parameters and creates an empty `Wordlist`
@@ -70,9 +70,15 @@ Wordlist lst;
 // ... lst is an empty Wordlist object ...
 ```
 
-Also write a destructor for `Wordlist` that de-allocates all the nodes in the
-list. In `Wordlist_base`, the destructor is called `~Wordlist_base()`, and the
-one you write for `Wordlist` should be called `~Wordlist()`.
+Also, write a *constructor* that takes the name of a file as input, and adds all
+the words in that file to the `Wordlist` object. Read the words from the file
+using C++'s standard `<<` operator (the first example at the top of this
+assignment shows how this constructor should work, and what its output ought to
+be).
+
+Write a destructor for `Wordlist` that de-allocates all the nodes in the list.
+In `Wordlist_base`, the destructor is called `~Wordlist_base()`, and the one you
+write for `Wordlist` should be called `~Wordlist()`.
 
 
 ### Testing Your Code
@@ -251,8 +257,8 @@ Be sure to test your program, and run it with `valgrind`, before submitting it.
   implemented correctly.
 - **2 marks** for a default constructor that creates an empty `Wordlist` object.
 - **2 marks** for a constructor that takes the name of a file as input, and adds
-  all the words in that file to a `Wordlist` object. Read the words from the
-  file using C++'s standard `<<` operator (the first example at the top of this
+  all the words in that file to the `Wordlist`. Read the words from the file
+  using C++'s standard `<<` operator (the first example at the top of this
   assignment shows how this constructor should work, and what its output ought
   to be).
 
