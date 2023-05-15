@@ -34,11 +34,17 @@ class List
     Node *head = nullptr;
 
 public:
+    //
+    // Tests if the list is empty.
+    //
     bool empty() const
     {
         return head == nullptr;
     }
 
+    //
+    // Return the number of nodes in the list.
+    //
     int size() const
     {
         int count = 0;
@@ -51,6 +57,9 @@ public:
         return count;
     }
 
+    //
+    // Print the list to cout.
+    //
     void print() const
     {
         cout << "List: ";
@@ -64,7 +73,7 @@ public:
     }
 
     //
-    // insert a new string at the front of the list
+    // Insert a new string at the front of the list.
     //
     void push_front(const string &s)
     {
@@ -73,7 +82,7 @@ public:
     }
 
     //
-    // remove the first node from the list (and return its value)
+    // Remove the first node from the list (and return its value).
     //
     string pop_front()
     {
@@ -86,7 +95,7 @@ public:
     }
 
     //
-    // return a copy the string in the first node in the list
+    // Return a copy the string in the first node in the list.
     //
     string peek_front() const
     {
@@ -95,7 +104,7 @@ public:
     }
 
     //
-    // remove all nodes from the list
+    // Remove all nodes from the list.
     //
     void clear()
     {
@@ -106,7 +115,7 @@ public:
     }
 
     //
-    // destructor
+    // Destructor.
     //
     ~List()
     {
@@ -165,8 +174,8 @@ public:
     }
 
     //
-    // Puts s at the front of the list as long as s does not
-    // occur anywhere else in the list.
+    // Puts s at the front of the list as long as s does not occur anywhere else
+    // in the list.
     //
     void push_front_new(const string &s)
     {

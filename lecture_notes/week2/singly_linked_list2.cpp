@@ -16,6 +16,9 @@ string quote(string s)
 
 class List
 {
+    //
+    // Node is a private class in List. It can only be used inside of List.
+    //
     struct Node
     {
         string data;
@@ -23,8 +26,8 @@ class List
     };
 
     //
-    // head always points the the first node in the list.
-    // nullptr means the list is empty.
+    // head always points the the first node in the list. nullptr means the list
+    // is empty. It is private, so it can only be accessed from inside of List.
     //
     Node *head = nullptr;
 
