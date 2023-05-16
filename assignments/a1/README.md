@@ -253,7 +253,7 @@ Be sure to test your program, and run it with `valgrind`, before submitting it.
 
 ### Methods: 26 marks
 
-- **2 marks** for each of the 11 virtual methods in `Wordlist_base` that is
+- **2 marks** for each of the 9 virtual methods in `Wordlist_base` that is
   implemented correctly.
 - **2 marks** for a default constructor that creates an empty `Wordlist` object.
 - **2 marks** for a constructor that takes the name of a file as input, and adds
