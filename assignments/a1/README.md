@@ -251,7 +251,7 @@ Be sure to test your program, and run it with `valgrind`, before submitting it.
 
 ## Marking Scheme
 
-### Methods: 26 marks
+### Methods: 22 marks
 
 - **2 marks** for each of the 9 virtual methods in `Wordlist_base` that is
   implemented correctly.
