@@ -16,6 +16,7 @@ string quote(string s)
 
 class List
 {
+    // private
     struct Node
     {
         string data;
@@ -29,6 +30,7 @@ class List
     Node *head = nullptr;
 
 public:
+    // method
     bool empty() const
     {
         return head == nullptr;
@@ -113,18 +115,15 @@ public:
 int main()
 {
     List lst;
-    assert(lst.empty());
-    assert(lst.size() == 0);
 
     // add a string
     lst.push_front("hello");
-    assert(!lst.empty());
-    assert(lst.size() == 1);
     lst.print();
 
     // add another string
     lst.push_front("world");
-    assert(!lst.empty());
-    assert(lst.size() == 2);
     lst.print();
+
+    string s = lst.pop_front();
+    cout << "popped " << quote(s) << endl;
 }

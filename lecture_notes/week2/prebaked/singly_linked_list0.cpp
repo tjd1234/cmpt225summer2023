@@ -96,9 +96,9 @@ int main()
     // The easiest way to delete the nodes in this particular example is to
     // delete them in reverse order from tail to head.
     //
-    delete head->next->next; // delete bird
-    delete head->next;       // delete dog
-    delete head;             // delete cat
+    // delete head->next->next; // delete bird
+    // delete head->next;       // delete dog
+    // delete head;             // delete cat
 
     //
     // Step 7b: delete the list, head to tail order

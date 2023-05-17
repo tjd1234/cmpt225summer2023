@@ -80,35 +80,17 @@ void clear()
 
 int main()
 {
+    assert(head == nullptr);
     assert(size() == 0);
 
-    // make a new node
-    Node *n1 = new Node{"hello", nullptr};
-
-    // make head point to it
-    head = n1;
-    assert(size() == 1);
-
-    // print the data in the first node
-    cout << "head->data = " << quote(head->data) << endl;
-
-    // make another new node
-    Node *n2 = new Node{"world", head}; // <-- different!
-    head = n2;
-    assert(size() == 2);
-
-    // print the data in the first node
-    cout << "head->data = " << quote(head->data) << endl;
-
-    // print the data in the second node
-    cout << "head->next->data = " << quote(head->next->data) << endl;
+    push_front("cat");
+    push_front("dog");
+    push_front("bird");
 
     print_list();
 
     //
     // de-allocate all memory allocated with new
     //
-    clear();
-    // delete n1;
-    // delete n2;
+    // clear();
 }
