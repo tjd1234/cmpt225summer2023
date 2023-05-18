@@ -1,17 +1,33 @@
-// scratch.cpp
+#pragma once
 
-//
-// ❯ make scratch
-// g++  -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virtual-dtor -g   scratch.cpp   -o scratch
-//
-// ❯ ./scratch
-// Hello World!
-//
-
-#include <iostream>
+#include <string>
 
 using namespace std;
 
-int main() {
-    cout << "Hello World!\n";
-}
+
+class List_base {
+public:
+
+    virtual bool empty() const = 0;
+
+    virtual int size() const = 0;
+
+    virtual void print() const = 0;
+
+    virtual void push_front(const string &s) = 0;
+
+    virtual string pop_front() = 0;
+
+    virtual string peek_front() const = 0;
+
+    virtual void clear()
+    {
+        while (!empty())
+        {
+            pop_front();
+        }
+    }
+
+    virtual ~List_base() { }
+
+}; // class List_base
