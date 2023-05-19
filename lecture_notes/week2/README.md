@@ -21,9 +21,3 @@
   The resulting code in main is simple and easy to use. The user of the `List`
   class doesn't need to know anything about the implementation, i.e. they don't
   need to know about points, or nodes, or new/delete.
-  
-  - [singly_linked_list3.cpp](singly_linked_list3.cpp) shows how to implement
-    some more methods for the `List` class.
-    [singly_linked_list3_recursive.cpp](singly_linked_list3_recursive.cpp) shows
-    to recursion in place of loops to implement many of the methods.
-

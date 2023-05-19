@@ -30,6 +30,31 @@ class List
     //
     Node *head = nullptr;
 
+    // Returns a pointer to the first node in the list, starting at the node p
+    // points to, that contains s. If no node contains s, returns nullptr.
+    Node *walk_to(Node *p, const string &s) const
+    {
+        if (p == nullptr)
+        {
+            return nullptr;
+        }
+        else if (p->data == s)
+        {
+            return p;
+        }
+        else
+        {
+            return walk_to(p->next, s);
+        }
+    }
+
+    // Returns a pointer to the first node in the list that contains s. If no
+    // node contains s, returns nullptr.
+    Node *walk_to(const string &s) const
+    {
+        return walk_to(head, s);
+    }
+
     // Returns the number of nodes in the list starting at p.
     // Uses recursion.
     int size(Node *p) const
@@ -232,7 +257,9 @@ public:
         if (size() != other.size())
         {
             return false;
-        } else {
+        }
+        else
+        {
             return equals(head, other.head);
         }
     }
@@ -278,6 +305,7 @@ public:
             push_front(s);
         }
     }
+
 }; // List
 
 int main()
