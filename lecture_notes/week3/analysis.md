@@ -35,8 +35,8 @@ also constant functions:
 
 The **logarithm function** is $f(n) = \log_b n$, where $b$ is a fixed constant
 called the **base** of the logarithm. We also assume $b > 1$. It is the
-*inverse* of the exponential function, i.e. $x = \log_b n$ if and only if $b^x =
-n$.
+*inverse* of the exponential function, i.e. $x = \log_b n$ if and only if 
+$b^x = n$.
 
 In computer science, if we don't write the base for a logarithm, we assume it is
 2, i.e. $\log n = \log_2 n$.
@@ -60,8 +60,8 @@ example, the base 10 number 250 needs 8 bits to represent it as a binary number,
 and $\lceil \log_2 250 \rceil = \lceil 7.97 \rceil = 8$.
 
 Similarly, $\lceil \log_{10} n \rceil$ is the number of base *digits* needed to
-represent $n$. For example, the number $2^{100}$ has 31 digits, and $\lceil
-\log_{10} 2^{100} \rceil = \lceil 30.1 \rceil = 31$.
+represent $n$. For example, the number $2^{100}$ has 31 digits, and 
+$\lceil \log_{10} 2^{100} \rceil = \lceil 30.1 \rceil = 31$.
 
 The expression $\lceil x \rceil$ is the **ceiling** of $x$, i.e. the smallest
 integer greater than or equal to $x$. The expression $\lfloor x \rfloor$ is the
@@ -104,8 +104,8 @@ for i = 1 to n
 
 `count` has the value $n^2$ at the end of this code. Intuitively, the outer loop
 executes $n$ times, and the inner loop executes $n$ times for each iteration of
-the outer loop, and so the total number of executions of the inner loop is $n
-\cdot n = n^2$.
+the outer loop, and so the total number of executions of the inner loop is 
+$n \cdot n = n^2$.
 
 A useful fact to remember is that the sum of the numbers from 1 to $n$ is a
 quadratic function:
@@ -298,13 +298,13 @@ need to find a real constant $c > 0$ and an integer constant $n_0 \geq 1$ such
 that
 
 $$
-2n \leq c n^2, \;\; \text{ for all } n \geq n_0
+2n \leq c n^2, \text{ for all } n \geq n_0
 $$
 
 Simplifying the inequality, we get:
 
 $$
-2 \leq c n, \;\; \text{ for all } n \geq n_0
+2 \leq c n, \text{ for all } n \geq n_0
 $$
 
 This is true if we choose, say, $c = 2$ and $n_0 = 1$. This satisfies the
@@ -334,8 +334,8 @@ when $n$ is big, $n^2$ is so big that the $3n$ and $5$ hardly matter in
 comparison. When $n$ is big, $f(n)$ is very close to $n^2$.
 
 **Example**. Let's prove that $2n^2 + 3n + 5$ is $O(n^2)$. According to the
-definition, we need to find a real constant $c > 0$ and an integer constant $n_0
-\geq 1$ such that:
+definition, we need to find a real constant $c > 0$ and an integer constant 
+$n_0 \geq 1$ such that:
 
 $$
 2n^2 + 3n + 5 \leq c n^2, \;\; \text{ for all } n \geq n_0
@@ -344,7 +344,7 @@ $$
 Simplifying the inequality, we get:
 
 $$
-2 + \frac{3}{n} + \frac{5}{n^2} \leq c, \;\; \text{ for all } n \geq n_0
+2 + \frac{3}{n} + \frac{5}{n^2} \leq c,  \text{ for all } n \geq n_0
 $$
 
 As $n$ gets big, $\frac{3}{n}$ and $\frac{5}{n^2}$ get closer and closer to 0,
@@ -352,8 +352,8 @@ and so the left-hand side of the inequality is just a tiny amount larger than 2
 for big values of $n$. The inequality is true if we choose, say, $c = 10$ and
 $n_0 = 100$. 
 
-If $n = 100$, then the left-hand side of the inequality is $2 + \frac{3}{100} +
-\frac{5}{100^2} = 2.03$, which is clearly less than 10.
+If $n = 100$, then the left-hand side of the inequality is 
+$2 + \frac{3}{100} + \frac{5}{100^2} = 2.03$, which is clearly less than 10.
 
 > **Note** A more rigorous way to prove this fact is to use limits and calculus.
 > We will leave such details for later theory courses.
@@ -364,9 +364,10 @@ $n$ of degree $d$, then $f(n)$ is $O(n^d)$. $O$-notation lets us treat
 polynomials as if they were just a single term.
 
 This fact is proven on p.168 of the textbook. The idea is interesting. It starts
-with the observation that when $n > 1$, this is true: $1 \leq n \leq n^2 \leq
-\ldots \leq n^d$. Then consider the expression $a_0 + a_1 n + a_2 n^2 + \ldots +
-a_d n^d$. Then imagine replacing the terms like this:
+with the observation that when $n > 1$, this is true: 
+$1 \leq n \leq n^2 \leq \ldots \leq n^d$. 
+Then consider the expression $a_0 + a_1 n + a_2 n^2 + \ldots + a_d n^d$. 
+Then imagine replacing the terms like this:
 
 - $a_0$ is replaced by the bigger term $a_0 n^d$
 - $a_1 n$ is replaced by the bigger term $a_1 n^d$
@@ -457,7 +458,7 @@ $$
 When `x` is in the list, what is the average number of comparisons? Intuitively,
 if the data is totally random, then the chance that `x` is near the beginning is
 the same as the chance that `x` is near the end, and so because of that the
-average number of comparisons is about $n/2$.
+average number of comparisons is about $\frac{n}{2}$.
 
 So the formula becomes:
 
@@ -470,6 +471,6 @@ $$
 $$
 
 Assuming our assumptions are accurate, this says that, on average, linear search
-does about $3n/4$ comparisons. You might have expected that the average number
-was about $n/2$, but the fact that $n$ comparisons are done in 50% of the cases
-pulls the average up a little bit.
+does about $\frac{3n}{4}$ comparisons. You might have expected that the average
+number was about $\frac{n}{2}$, but the fact that $n$ comparisons are done in
+50% of the cases pulls the average up a little bit.
