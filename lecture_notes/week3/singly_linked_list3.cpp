@@ -50,6 +50,29 @@ class List
         return nullptr;
     }
 
+    // Returns a pointer to the ith node in the list.
+    Node *walk_to(int i) const
+    {
+        Node *p = head;
+        for (int j = 0; j < i; j++)
+        {
+            p = p->next;
+        }
+        return p;
+    }
+
+    // Remove the node after p from the list. Can't delete the first element:
+    // use pop_front for that.
+    //
+    // Assume p points to a valid node in the list.
+    void remove_after(Node *p)
+    {
+        assert(p != nullptr);
+        Node *n = p->next;
+        p->next = n->next;
+        delete n;
+    }
+
 public:
     //
     // Tests if the list is empty.
@@ -203,6 +226,23 @@ public:
         if (!contains(s))
         {
             push_front(s);
+        }
+    }
+
+    //
+    // Remove the node at location i.
+    //
+    void remove(int i)
+    {
+        assert(i >= 0 && i < size());
+        if (i == 0)
+        {
+            pop_front();
+        }
+        else
+        {
+            Node *p = walk_to(i - 1);
+            remove_after(p);
         }
     }
 

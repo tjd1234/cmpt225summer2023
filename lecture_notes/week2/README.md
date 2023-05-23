@@ -18,6 +18,6 @@
   list nodes when the `List` object goes out of scope, or is deleted. This
   prevents memory leaks and double deletions.
 
-  The resulting code in main is simple and easy to use. The user of the `List`
+  The resulting code in `main` is simple and easy to use. The user of the `List`
   class doesn't need to know anything about the implementation, i.e. they don't
   need to know about points, or nodes, or new/delete.
