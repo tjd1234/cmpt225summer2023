@@ -259,7 +259,7 @@ $f(n)$ is **big-O** of $g(n)$ if there is a real constant $c > 0$ and an integer
 constant $n_0 \geq 1$ such that
 
 $$
-f(n) \leq c g(n), \;\; \text{ for all } n \geq n_0
+f(n) \leq c g(n), \text{ for all } n \geq n_0
 $$
 
 Intuitively, is a way to say that a function is, in a sense, less than or equal
@@ -298,7 +298,7 @@ need to find a real constant $c > 0$ and an integer constant $n_0 \geq 1$ such
 that
 
 $$
-2n \leq c n^2, \text{ for all } n \geq n_0
+2n \leq c n^2, \text{for all} n \geq n_0
 $$
 
 Simplifying the inequality, we get:
@@ -318,7 +318,7 @@ if $2n$ was $O(1)$, then there would be a real constant $c > 0$ and an integer
 constant $n_0 \geq 1$ such that
 
 $$
-2n \leq c, \;\; \text{ for all } n \geq n_0
+2n \leq c, \text{ for all } n \geq n_0
 $$
 
 But there is no possible choice of $c$ and $n_0$ that would satisfy this
@@ -338,7 +338,7 @@ definition, we need to find a real constant $c > 0$ and an integer constant
 $n_0 \geq 1$ such that:
 
 $$
-2n^2 + 3n + 5 \leq c n^2, \;\; \text{ for all } n \geq n_0
+2n^2 + 3n + 5 \leq c n^2, \text{ for all } n \geq n_0
 $$
 
 Simplifying the inequality, we get:
