@@ -450,8 +450,8 @@ Then, on average, the total number of comparisons is give by this formula:
 
 $$
 \begin{align}
-&= \frac{1}{2}\text{(comps when n not in list)} \times \frac{1}{2}\text{(avg. number of comps if x is in the list)} \\
-&= \frac{1}{2} n \times \frac{1}{2}\text{(avg. number of comps if x is in the list)}
+&= \frac{1}{2}\text{(comps when n not in list)} + \frac{1}{2}\text{(avg. number of comps if x is in the list)} \\
+&= \frac{1}{2} n + \frac{1}{2}\text{(avg. number of comps if x is in the list)}
 \end{align}
 $$
 
@@ -464,8 +464,8 @@ So the formula becomes:
 
 $$
 \begin{align}
-&= \frac{1}{2} n \times \frac{1}{2}\text{(avg. number of comps if x is in the list)} \\
-&= \frac{1}{2} n \times \frac{1}{2} \cdot \frac{n}{2} \\
+&= \frac{1}{2} n + \frac{1}{2}\text{(avg. number of comps if x is in the list)} \\
+&= \frac{1}{2} n + \frac{1}{2} \cdot \frac{n}{2} \\
 &= \frac{3n}{4}
 \end{align}
 $$
