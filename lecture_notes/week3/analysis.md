@@ -9,7 +9,7 @@ as input, and then does about $f(n) = n \log n$ *comparisons to put the values
 in sorted order. Comparisons are the traditional key operation of work for
 sorting algorithms.
 
-In this course, we'll mainly see the following sven functions when studying
+In this course, we'll mainly see the following seven functions when studying
 algorithm running time ....
 
 ## The Constant Function
