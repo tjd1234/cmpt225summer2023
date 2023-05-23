@@ -298,7 +298,7 @@ need to find a real constant $c > 0$ and an integer constant $n_0 \geq 1$ such
 that
 
 $$
-2n \leq c n^2, \text{for all} n \geq n_0
+2n \leq c n^2, \text{ for all } n \geq n_0
 $$
 
 Simplifying the inequality, we get:
