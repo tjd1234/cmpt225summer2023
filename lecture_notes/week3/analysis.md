@@ -157,13 +157,13 @@ When you graph the functions above, you can see that they grow at different
 rates, i.e. some of the functions are steeper than others. The rates of growth
 are ordered from fastest to slowest like this:
 
-- constant
-- logarithm
-- linear
-- n-log-n
-- quadratic
-- cubic
-- exponential
+- constant, e.g. $f(n) = 50$
+- logarithm, e.g. $f(n) = 3\log 2n + 5$
+- linear, e.g. $f(n) = 20n + 5$
+- n-log-n, e.g. $f(n) = 5n \log n - 10$
+- quadratic, e.g. $f(n) = 3n^2 + 2n + 25$
+- cubic, e.g. $f(n) = 2n^3 + 5n^2 + 3n + 1$
+- exponential, e.g. $f(n) = 2^n + 3$
 
 When we analyze the performance of an algorithm in this course, we will usually
 be putting the algorithm into one of the seven categories above. Generally, when
@@ -172,23 +172,28 @@ functions are the slowest.
 
 ## Algorithm Analysis
 
-A **data structure** is a systematic way of organizing and accessing data. An
+A **data structure** is a systematic way of organizing data. For example,
+arrays, strings, and linked-lists are examples of data structures. An
 **algorithm** is a step-by-step procedure for performing some task in a finite
-amount of time. Algorithms and data structures work together. The data structure
-you use often determines the algorithm you use, and vice versa.
+amount of time. Algorithms and data structures work together. Data structures
+and algorithms usually work together: the data structure you use often
+determines the algorithm you use, and vice versa.
 
 We will usually be interested in the **running time** of an algorithm, i.e. how
-fast it is. Sometimes we will also be interested in the **memory usage** of an
+fast it is. We do this by counting how many times some **key operation** the
+algorithm executes. 
+
+Sometimes we will also be interested in the **memory usage** of an
 algorithm.
 
 ### Empirical Analysis of Algorithms
 
-One way to study the running time of an algorithm is to implement it and perform
+One way to determine an algorithm's running time is to implement it and perform
 experiments. This is called **empirical analysis**. While this can be quite
 useful, it has some drawbacks:
 
-- experiments can only be done on a relatively small set of inputs, restricted
-  by the time and memory available on your computer
+- experiments can only be done on a relatively small set of inputs, limited by
+  the time and memory available on your computer
 - when comparing algorithms, it can be hard to be sure that the experimental
   conditions are the same, e.g. different computers run at different speeds
 - the algorithm has to be implemented and debugged, which can be time-consuming
@@ -200,20 +205,26 @@ this can give us useful results more quickly than empirical analysis.
 ### Primitive Operations (or Key Operations/Instructions)
 
 Above we said an algorithm is a step-by-step procedure for performing some task.
-So what is a step? This depends on the algorithm you are using. We choose steps
-that make sense for the problem, and that are simple enough to analyze
-mathematically. For example:
+So what is a *step*? This depends on your algorithm and application. We want to
+choose steps that make sense for the problem, and that are simple enough to
+analyze mathematically. 
 
-- For **summing a list of numbers**, `+` is a good step, or calls to `[]`
-  (indexing).
-- For **finding the maximum number in a list**, `>` is a good step.
-- For **sorting a list of numbers**, `<=` (comparison) is a good step, because
-  it turns out that number of comparisons is often proportional to the running
-  time of the algorithm.
-
-The step we choose for analyzing an algorithm is called the **primitive
+We'll call the step we choose for analyzing an algorithm the **primitive
 operation**, or **key operation** (or **key instruction**), or **barometer
 instruction**.
+
+For example:
+
+- For **summing a list of numbers**, `+` is a good key operation, or calls to
+  `[]` (indexing).
+- For **printing the values of a linked list**, `print` (or `cout`, C++) is a
+  good key operation.
+- For **finding the maximum number in a list**, `>` is a good key operation
+  because you need to do at least one comparison for each number in the list.
+- For **sorting a list of numbers**, `<=` (comparison) is a key operation step,
+  because the number of comparisons is often proportional to the running time of
+  the algorithm.
+- For **multiplying two matrices of numbers**, `*` is a good key operation.
 
 The choice of key operation for an algorithm can have a big difference on its
 performance, and so it is important to choose carefully. 
@@ -252,8 +263,8 @@ the running times of algorithms. We will define it precisely, and then see how
 to apply it.
 
 **Definition of O-notation**. Let $f(n)$ and $g(n)$ be functions that map
-non-negative integers to real numbers. We assume the functions return the number
-of key operations an algorithm does for an input of size $n$.
+non-negative integers to real numbers. We assume they return the number of key
+operations an algorithm does for an input of size $n$.
 
 $f(n)$ is **big-O** of $g(n)$ if there is a real constant $c > 0$ and an integer
 constant $n_0 \geq 1$ such that
@@ -262,9 +273,9 @@ $$
 f(n) \leq c g(n), \text{ for all } n \geq n_0
 $$
 
-Intuitively, is a way to say that a function is, in a sense, less than or equal
-to another function. When we say $f(n)$ is $O(g(n))$, we mean that, when $n$ is
-big, $g(n)$ is an upper bound on $f(n)$.
+Intuitively, this is a way to say that one function is, in a sense, less than or
+equal to some other function. When we say $f(n)$ is $O(g(n))$, we mean that,
+when $n$ is big, $g(n)$ is an upper bound on $f(n)$.
 
 The expression "$f(n)$ is **big-O** of $g(n)$" can be phrased in these
 equivalent ways:
@@ -281,21 +292,22 @@ Here are some examples of $O$-notation expressions:
 - 5 is $O(n)$
 - $2n$ is *not* $O(1)$, *not* $O(\log n)$, and *not* $O(n)$
 - $2n$ is $O(n)
-- $n^2$ is not $O(n)$
+- $n^2$ is *not* $O(n)$
 - $2n$ is $O(n \log n)$
 - $2n \log n$ is $O(n \log n)$
 - $2n$ is $O(n^2)$
 - $2n^2 + n$ is $O(n^2)$
 - $2n$ is $O(n^3)$
 - $n^2$ is $O(n^3)$
-- $2n$ is $(2^n)$
+- $2n$ is $O(2^n)$
 - $n^{75}$ is $(2^n)$
+- $2^n$ is *not* $O(n^k)$, where $k$ is any fixed positive constant
 
 The definition of $O$-notation lets us prove basic facts about $O$-notation. 
 
 **Example**. Let's prove that $2n$ is $O(n^2)$. According to the definition, we
 need to find a real constant $c > 0$ and an integer constant $n_0 \geq 1$ such
-that
+that:
 
 $$
 2n \leq c n^2, \text{ for all } n \geq n_0
@@ -310,12 +322,12 @@ $$
 This is true if we choose, say, $c = 2$ and $n_0 = 1$. This satisfies the
 definition, and so we've proven that $2n$ is $O(n^2)$.
 
-Note that other choices of $c$ and $n_0$ would also work. You *don't* need to
-find the smallest values.
+Note that other choices of $c$ and $n_0$ would also work. For example, $c = 35$
+and $n_0 = 100$ would also work. You *don't* need to find the smallest values.
 
 **Example**. Let's prove that $2n$ is *not* $O(1)$. According to the definition,
 if $2n$ was $O(1)$, then there would be a real constant $c > 0$ and an integer
-constant $n_0 \geq 1$ such that
+constant $n_0 \geq 1$ such that:
 
 $$
 2n \leq c, \text{ for all } n \geq n_0
@@ -329,13 +341,13 @@ than $c$.
 ## Some Useful Properties of O-notation
 
 $O$-notation lets us ignore constant factors and lower-order terms. For example,
-if $f(n) = 2n^2 + 3n + 5$, then $f(n)$ is $O(n^2)$. Intuitively, this means that
-when $n$ is big, $n^2$ is so big that the $3n$ and $5$ hardly matter in
-comparison. When $n$ is big, $f(n)$ is very close to $n^2$.
+if $f(n) = 2n^2 + 3n + 5$, then $f(n)$ is $O(n^2)$. Intuitively, this means,
+when $n$ is big, $n^2$ is so big that $3n$ and $5$ hardly make any difference.
+When $n$ is big, $f(n)$ is very close to $n^2$.
 
 **Example**. Let's prove that $2n^2 + 3n + 5$ is $O(n^2)$. According to the
-definition, we need to find a real constant $c > 0$ and an integer constant 
-$n_0 \geq 1$ such that:
+definition, we need to find a real constant $c > 0$ and an integer constant $n_0
+\geq 1$ such that:
 
 $$
 2n^2 + 3n + 5 \leq c n^2, \text{ for all } n \geq n_0
@@ -350,7 +362,7 @@ $$
 As $n$ gets big, $\frac{3}{n}$ and $\frac{5}{n^2}$ get closer and closer to 0,
 and so the left-hand side of the inequality is just a tiny amount larger than 2
 for big values of $n$. The inequality is true if we choose, say, $c = 10$ and
-$n_0 = 100$. 
+$n_0 = 100$.
 
 If $n = 100$, then the left-hand side of the inequality is 
 $2 + \frac{3}{100} + \frac{5}{100^2} = 2.03$, which is clearly less than 10.
@@ -358,10 +370,14 @@ $2 + \frac{3}{100} + \frac{5}{100^2} = 2.03$, which is clearly less than 10.
 > **Note** A more rigorous way to prove this fact is to use limits and calculus.
 > We will leave such details for later theory courses.
 
-**Fact** If $f(n) = a_d n^d + a_{d-1} n^{d-1} + \cdots + a_1 n + a_0$, where
-$a_d > 0$, then $f(n) = O(n^d)$. In other words, if $f(n)$ is a polynomial in
-$n$ of degree $d$, then $f(n)$ is $O(n^d)$. $O$-notation lets us treat
-polynomials as if they were just a single term.
+**Fact** If $f(n)$ is a polynomial, i.e. 
+$f(n) = a_d n^d + a_{d-1} n^{d-1} + \cdots + a_1 n + a_0$, where $a_d > 0$, 
+then $f(n) = O(n^d)$. In other words, when $f(n)$ is a polynomial of degree
+$d$, then $f(n)$ is $O(n^d)$. $O$-notation lets us treat polynomials as if they
+were just their single highest-order term.
+
+> The **degree of a polynomial** is the highest power of $n$ that appears in it.
+> For example, $n^3 + 100n^2 - n$ is degree 3, and $n^2 + 100n + 1$ is degree 2.
 
 This fact is proven on p.168 of the textbook. The idea is interesting. It starts
 with the observation that when $n > 1$, this is true: 
@@ -383,6 +399,12 @@ Since all the $a_i$ are fixed constants, the sum $a_0 + a_1 + a_2 + \ldots + a_d
 also a fixed constant, and we can choose it as the value of $c$ in the definition
 of O-notation. This inequality holds when $n_0 = 1$, and so this shows that
 $f(n) = a_d n^d + a_{d-1} n^{d-1} + \cdots + a_1 n + a_0$ is $O(n^d)$.
+
+> The proof in the book requires that all the $a_i$ are positive. So it doesn't
+> apply directly to polynomials like $n^2 - 100n + 1$. But that's okay: if we
+> add $100n$, then we get at $n^2 - 100n + 1 <= n^2 + 1$. Since $n^2 + 1$ has
+> only positive coefficients, we see that $n^2 + 1$ is $O(n^2)$, and so the
+> smaller expression $n^2 - 100n + 1$ is also $O(n^2)$.
 
 
 ## Simplest Terms for O-notation
