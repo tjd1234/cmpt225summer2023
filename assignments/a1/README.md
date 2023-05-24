@@ -295,7 +295,7 @@ Be sure to test your program, and run it with `valgrind`, before submitting it.
 
 A good way to catch bugs is to put `assert(is_sorted());` at the end of
 `add_word()`. Then every time you add a word it will check that the list is in
-sorted order.
+sorted order (by word).
 
 Test as you go! When you write a method, add a few test cases for it, e.g. using
 `assert` or if/then.

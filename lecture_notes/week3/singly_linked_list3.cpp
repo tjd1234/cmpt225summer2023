@@ -51,10 +51,10 @@ class List
     }
 
     // Returns a pointer to the ith node in the list.
-    Node *walk_to(int i) const
+    Node *walk_to(int index) const
     {
         Node *p = head;
-        for (int j = 0; j < i; j++)
+        for (int j = 0; j < index; j++)
         {
             p = p->next;
         }
@@ -68,9 +68,9 @@ class List
     void remove_after(Node *p)
     {
         assert(p != nullptr);
-        Node *n = p->next;
-        p->next = n->next;
-        delete n;
+        Node *q = p->next;
+        p->next = q->next;
+        delete q;
     }
 
 public:

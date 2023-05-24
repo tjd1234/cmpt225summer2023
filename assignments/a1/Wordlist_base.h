@@ -50,6 +50,8 @@ struct Wordlist_base
     // E.g. if the most frequent word is "the" with count 5437, then "the 5437"
     // is returned. If there is a tie, the first word in the list is returned.
     //
+    // Assumes the list is not empty.
+    //
     virtual string most_frequent() const = 0;
 
     //
@@ -60,7 +62,7 @@ struct Wordlist_base
     //
     // Adds w to the word list. If w is already in the list, then increment its
     // count, otherwise add a new Node (with count 1) at the alphabetically
-    // correct location.
+    // correct location for the word.
     //
     virtual void add_word(const string &w) = 0;
 
