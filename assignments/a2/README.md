@@ -5,8 +5,9 @@
 In this assignment, your task is to add an *undo* feature to a list of strings.
 
 To start, here's a working class called [Stringlist](Stringlist.h) that
-implements a simple string list. [Stringlist_test.cpp](Stringlist_test.cpp) has
-tests for all the methods in [Stringlist](Stringlist.h).
+implements a simple string list as a dynamic array.
+[Stringlist_test.cpp](Stringlist_test.cpp) has tests for all the methods in
+[Stringlist](Stringlist.h).
 
 `Stringlist` has one unimplemented method:
 
@@ -26,9 +27,9 @@ Your job is to implement `undo`, thus making `Stringlist` an *undoable* list.
 
 Your implementation must follow these rules:
 
-- Do **not** delete any methods, or change the *signatures* of any methods in
+- Do **not** delete any methods, or change the *signatures* of any methods, in
   [Stringlist](Stringlist.h). You **can** change the *implementation* of
-  existing methods if necessary. But they should still work the same way.**Your
+  existing methods if necessary. But they should still work the same way: **your
   finished version of `Stringlist` with `undo` implement must still pass all the
   tests in [Stringlist_test.cpp](Stringlist_test.cpp)**.
 - You **can** add other helper methods (public or private), functions, and
@@ -70,8 +71,8 @@ int main() {
 
 ## Getting Started with `StringList`
 
-To start, [download all the files for this
-assignment](https://github.com/tjd1234/cmpt225summer2023/tree/main/assignments/a2)
+To start, 
+[download all the files for this assignment](https://github.com/tjd1234/cmpt225summer2023/tree/main/assignments/a2)
 to your computer, and then compile and run
 [Stringlist_test.cpp](Stringlist_test.cpp) to make sure it runs without error:
 
@@ -99,7 +100,7 @@ modify `Stringlist` only as described at the start of this assignment.
 One idea for how undo can work is that every time `Stringlist` is modified by
 one of its methods, it *pushes* the *inverse* operation on the top of an undo
 stack. When `undo()` is called, it *pops* the top of the stack and applies that
-operation to the list thus undoing the most recent operation.
+operation to the list, thus undoing the most recent operation.
 
 **Important** All the methods in [Stringlist](Stringlist.h) marked "undoable"
 should work with `undo()`. `undo()` cannot be undone: there is no "re-do"
@@ -110,11 +111,12 @@ Here are some examples of how specific methods should work.
 ### Undoing `insert_before`
 
 Suppose `lst` is `{"dog", "cat", "tree"}`, and you call `lst.insert_before(3,
-"hat")`. It should push the operation *remove string at index 3* on the undo
-stack. You could store it as a short `string` command, e.g. `REMOVE 3`. If you
-now call `lst.undo()`, the `REMOVE 3` command on top of the stack is popped and
-applied to the list, e.g. the string at index 3 is removed, leaving the list in
-the state it was in before calling `insert_before`: `{"dog", "cat", "tree"}`.
+"hat")`, making it `{"dog", "cat", "tree", "hat"}`. It should push the operation
+*remove string at index 3* on the undo stack. You could store it as a short
+`string` command, e.g. `REMOVE 3`. If you now call `lst.undo()`, the `REMOVE 3`
+command on top of the stack is popped and applied to the list, e.g. the string
+at index 3 is removed, leaving the list in the state it was in before calling
+`insert_before`: `{"dog", "cat", "tree"}`.
 
 In code:
 
@@ -159,12 +161,12 @@ lst.undo();
 ### Undoing `remove_at`
 
 For `remove_at`, suppose `lst` is `{"dog", "cat", "tree"}`. If you call
-`lst.remove_at(1)`, then you should push the operation *insert `"cat"` at index
-1* onto the stack, and then remove the string at index 1. You could format the
-operation as `"INSERT 1 cat"`. If you now call `lst.undo()`, the command on top
-of the stack is popped and applied to the list, e.g. the string `"cat"` is
-inserted at index 1, and the list is in the state it was in before calling
-`remove_at`: `{"dog", "cat", "tree"}`.
+`lst.remove_at(1)`, you should then push the operation *insert `"cat"` at index
+1* onto the stack, and then remove the string at index 1 so it becomes `{"dog",
+"cat", "tree"}`. You could format the operation as `"INSERT 1 cat"`. If you now
+call `lst.undo()`, the command on top of the stack is popped and applied to the
+list, e.g. the string `"cat"` is inserted at index 1, and the list is in the
+state it was in before calling `remove_at`: `{"dog", "cat", "tree"}`.
 
 In code:
 
@@ -186,9 +188,8 @@ For `operator=`, suppose `lst1` is `{"dog", "cat", "tree"}`, and `lst2` is
 should push the command *set `lst1` to `{"dog", "cat", "tree"}`* onto the stack,
 and then assign `lst1` to `lst2`. You could format the command as `"SET lst1 dog
 cat tree"`. Calling `lst1.undo()` pops the command on top of the stack and
-applies it to the list, e.g. `lst1` is set to `{"dog", "cat", "tree"}` and the
-list is in the state it was in before calling `operator=`: `{"dog", "cat",
-"tree"}`.
+applies it to the list, e.g. `lst1` is set to the state it was in before calling
+`operator=`: `{"dog", "cat", "tree"}`.
 
 In code:
 
@@ -206,7 +207,7 @@ lst1.undo();
 ```
 
 As this shows, when you undo `operator=`, the *entire* list of strings is
-restored in one call to `undo()`. 
+restored in *one* call to `undo()`.
 
 **Important** notes:
 
@@ -265,7 +266,7 @@ this assignment.
 ### Testing Your Code
 
 It's important to test your code as you go. In [a2_test.cpp](a2_test.cpp), write
-code to test your `Stringlist` undo method. Compiile and run it like this:
+code to test your `Stringlist` undo method. Comppile and run it like this:
   
 ```bash 
 ❯ make a2_test
