@@ -1,7 +1,9 @@
 ## Assignment 4: Sorting
 
-**WARNING**: This is a draft! Any part of this, even the entire, could change in
-any way at any time. Do not assume this will actually be assignment 3.
+> **WARNING** This is a draft! Any part of this, even the entire, could change
+> in any way at any time. Do not assume this will actually be assignment 3.
+
+------
 
 > The ability to destroy a planet is insignificant next to the power of sorting.
 >
