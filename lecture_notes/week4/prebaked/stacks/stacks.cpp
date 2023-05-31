@@ -47,11 +47,11 @@ struct Stack_base
 // Fixed-sized array implementation.
 //
 template <typename T>
-class Stack_array : public Stack_base<int>
+class Stack_array : public Stack_base<T>
 {
 private:
-    int *arr; // pointer to the array
-    int n;    // number of elements currently in the stack
+    T *arr; // pointer to the array
+    int n;  // number of elements currently in the stack
 
 public:
     // It's okay to make max_size public because it's const. Users can read it, but
@@ -66,7 +66,7 @@ public:
     // only be initialized and not assigned to.
     //
     Stack_array(int msize)
-        : max_size(msize)
+        : max_size(msize) // initializer list
     {
         assert(max_size > 0);
         arr = new T[max_size];

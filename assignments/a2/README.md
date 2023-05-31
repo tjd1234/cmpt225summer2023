@@ -266,7 +266,7 @@ this assignment.
 ### Testing Your Code
 
 It's important to test your code as you go. In [a2_test.cpp](a2_test.cpp), write
-code to test your `Stringlist` undo method. Comppile and run it like this:
+code to test your `Stringlist` undo method. Compile and run it like this:
   
 ```bash 
 ❯ make a2_test
@@ -329,9 +329,9 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
 
 ## Marking Scheme
 
-- **9 marks** One mark for each method in [Stringlist.h](Stringlist.h) marked
+- **8 marks** One mark for each method in [Stringlist.h](Stringlist.h) marked
   "undoable" that works correctly with `undo()`. This also includes the correct
-  behaviour for the `Stringlist` copy constructor (which should not copy the
+  behaviour for the `Stringlist` copy constructor (which should *not* copy the
   undo stack).
 - **5 marks** The markers tests run correctly, including with no memory leaks
   according to `valgrind`.

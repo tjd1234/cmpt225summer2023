@@ -135,7 +135,7 @@ public:
     //    lst1 = lst1;
     //
     // In this case, nothing happens to lst1. Nothing is changed. Both its
-    // stirng data and undo stack are left as-is.
+    // string data and undo stack are left as-is.
     //
     Stringlist &operator=(const Stringlist &other)
     {
@@ -308,27 +308,6 @@ public:
         remove_at(index);
         return true;
     }
-
-    // //
-    // // Removes all occurrences of s in the list, and returns the number of items
-    // // removed.
-    // //
-    // // undoable
-    // //
-    // int remove_all(const string &s)
-    // {
-    //     int count = 0;
-    //     for (int i = 0; i < sz; i++)
-    //     {
-    //         if (arr[i] == s)
-    //         {
-    //             remove_at(i);
-    //             count++;
-    //             i--;
-    //         }
-    //     }
-    //     return count;
-    // }
 
     //
     // Undoes the last operation that modified the list. Returns true if a

@@ -1,4 +1,4 @@
-## Assignment 3: Sorting
+## Assignment 4: Sorting
 
 **WARNING**: This is a draft! Any part of this, even the entire, could change in
 any way at any time. Do not assume this will actually be assignment 3.
