@@ -53,9 +53,9 @@ int main() {
     Stringlist lst;
     cout << lst << endl; // {}
 
-    lst.add("one");
-    lst.add("two");
-    lst.add("three");
+    lst.insert_back("one");
+    lst.insert_back("two");
+    lst.insert_back("three");
     cout << lst << endl; // {"one", "two", "three"}
 
     lst.undo();
