@@ -316,7 +316,7 @@ public:
     T dequeue()
     {
         assert(!empty());
-        T result = arr[front_index];
+        // T result = arr[front_index];
         front_index = (front_index + 1) % max_size;
         n--;
         return result;
