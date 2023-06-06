@@ -496,3 +496,44 @@ Assuming our assumptions are accurate, this says that, on average, linear search
 does about $\frac{3n}{4}$ comparisons. You might have expected that the average
 number was about $\frac{n}{2}$, but the fact that $n$ comparisons are done in
 50% of the cases pulls the average up a little bit.
+
+## Estimating Running Times
+
+**Example**. Suppose an algorithm does $n^2$ key operations when it processes an
+input of size $n$. If $t$ is the time it takes to do one key operation, then the
+time it takes for the algorithm to process $n$ items is $T(n) = t \cdot n^2$. If
+you double the input size, then the algorithm will take $T(2n)$ time, which we
+can write like this: $T(2n) = t \cdot (2n)^2 = t \cdot 4n^2 = 4 T(n)$.
+
+So we have the formula $T(2n) = 4 T(n)$.
+
+Suppose it takes 3 seconds for the algorithm to process an input of size $n=50$,
+meaning $T(50) = 3$. When it processes $n=100$ items, it will take $T(100)$
+time, which can be calculated using the $T(2n)$ formula like this:
+
+   $T(100) = T(2 \cdot 50) = 4T(50) = 4 \cdot 3 = 12$ seconds
+
+This shows that when you double the input to an $O(n^2)$ algorithm, the running
+time *quadruples*, i.e. it increases by a factor of 4. In contrast, if you
+double the size of the input to an $O(n)$ algorithm, the running time only
+doubles.
+
+**Example**. Suppose an algorithm does $2^n$ key operations when it processes an
+input of size $n$. If $t$ is the time it takes to do one key operation, then the
+time it takes for the algorithm to process $n$ items is $T(n) = t \cdot 2^n$. If
+you double the input size, then the algorithm will take $T(2n)$ time, which we
+can write like this: $T(2n) = t \cdot 2^{2n} = t \cdot 2^n \cdot 2^n = (t \cdot
+2^n) \cdot 2^n = T(n) \cdot 2^n$.
+
+So we have the formula $T(2n) = T(n) \cdot 2^n$. 
+
+Suppose it takes 3 seconds for the algorithm to process an input of size $n=50$,
+which means $T(50) = 3$. When it processes $n=100$ items, it will take $T(100)$
+time, which can be calculated using the $T(2n)$ formula like this:
+
+   $T(100) = T(2 \cdot 50) = T(50) \cdot 2^{50} = 3 \cdot 2^{50}$ seconds
+
+$3 \cdot 2^{50}$ seconds is huge: it's over 107 million years!
+
+This shows that when you double the input to an $O(2^n)$ algorithm, the running
+increases by a factor of $2^n$.
