@@ -414,7 +414,7 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
 - **2 marks**: The `JingleNet` class is used in a sensible way that makes your
   program easier to understand.
 
-### Correctness: 11 marks
+### Correctness: 13 marks
 
 - **5 marks**: valgrind reports no memory leaks or other errors when the program
   runs.
