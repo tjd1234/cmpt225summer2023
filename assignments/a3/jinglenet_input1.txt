@@ -1,0 +1,4 @@
+SEND greenie elf2 send candy canes
+ANNOUNCE 1
+SEND yumyum elf2 I love candy canes!
+ANNOUNCE 2

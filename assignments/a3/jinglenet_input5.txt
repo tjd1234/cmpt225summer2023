@@ -1,0 +1,101 @@
+SEND fizzy elf1 Reminder: The holiday movie night is tonight in the Elf Lounge. Popcorn provided!
+SEND greenie snowman Attention, all elves! The inventory of jingle bells has been replenished.
+SEND fizzy santa Elves, please check the Workshop Notice Board for important updates.
+SEND greenie elf1 Reminder: The holiday movie night is tonight in the Elf Lounge. Popcorn provided!
+SEND scooter santa Attention, everyone! The sleigh bells are being polished. Expect some noise.
+SEND happy elf1 Attention, elves! The music room is available for practice sessions.
+SEND apple snowman Reminder: The Christmas feast will be held in the Main Hall at 6 PM.
+SEND apple santa Attention, elves! The music room is available for practice sessions.
+SEND pinky snowman Reindeer team, assemble at the sleigh for a practice run.
+SEND apple elf2 Attention, reindeer! Santa will be conducting flight practice this afternoon.
+SEND apple elf2 Attention, all elves! The snow globe collection needs dusting. Volunteers needed.
+SEND scooter elf1 Attention, elves! The shipment of paint brushes has arrived.
+SEND sugarberry reindeer Reminder: The gingerbread house decorating competition is next week. Start planning!
+SEND hopscotch santa Reminder: The snow sculpture contest is next week. Start sculpting!
+SEND scooter elf1 Reminder: The snow sculpture contest is next week. Start sculpting!
+SEND apple elf2 Reminder: The holiday movie night is tonight in the Elf Lounge. Popcorn provided!
+SEND apple snowman Reindeer, Santa's sleigh has been equipped with new LED lights. They look fantastic!
+SEND pinky reindeer Attention, everyone! The sleigh bells are being polished. Expect some noise.
+SEND happy snowman Elves, please return any borrowed tools to the Workshop Supervisor.
+SEND apple snowman Elves, please remember to label each toy with the correct age group.
+SEND scooter santa Attention, reindeer! The final flight rehearsal will take place tomorrow night.
+SEND greenie elf1 Reindeer, get ready for some training exercises at the Reindeer Gym.
+SEND happy reindeer Reminder: The Christmas feast will be held in the Main Hall at 6 PM.
+SEND yumyum santa Elves, please report any broken toys to the Toy Repair department immediately.
+SEND pinky snowman Attention, reindeer! The final flight rehearsal will take place tomorrow night.
+REMOVE_ALL sugarberry
+REMOVE_ALL happy
+SEND fizzy santa Elves, please remember to label each toy with the correct age group.
+REMOVE_ALL fizzy
+PROMOTE_ANNOUNCEMENTS yumyum
+ANNOUNCE 5
+REMOVE_ALL fizzy
+REMOVE_ALL sugarberry
+REMOVE_ALL scooter
+SEND happy santa Elves, please remember to wear your safety goggles in the toy-making area.
+PROMOTE_ANNOUNCEMENTS pinky
+REMOVE_ALL yumyum
+SEND greenie santa Attention, everyone! The sleigh bells are being polished. Expect some noise.
+SEND yumyum snowman Reminder: The Christmas feast will be held in the Main Hall at 6 PM.
+SEND fizzy elf2 Elves, please keep the work areas clean and organized at all times.
+ANNOUNCE 2
+PROMOTE_ANNOUNCEMENTS happy
+SEND pinky reindeer Elves, please remember to label each toy with the correct age group.
+ANNOUNCE 5
+PROMOTE_ANNOUNCEMENTS yumyum
+REMOVE_ALL fizzy
+REMOVE_ALL happy
+REMOVE_ALL happy
+SEND yumyum snowman Elves, please keep the work areas clean and organized at all times.
+REMOVE_ALL greenie
+ANNOUNCE 4
+PROMOTE_ANNOUNCEMENTS hopscotch
+PROMOTE_ANNOUNCEMENTS sugarberry
+ANNOUNCE 2
+REMOVE_ALL pinky
+ANNOUNCE 5
+ANNOUNCE 2
+SEND hopscotch elf1 Attention, all elves! The inventory of jingle bells has been replenished.
+ANNOUNCE 5
+PROMOTE_ANNOUNCEMENTS cookie
+REMOVE_ALL yumyum
+ANNOUNCE 2
+REMOVE_ALL hopscotch
+SEND apple elf2 Reminder: The holiday movie night is tonight in the Elf Lounge. Popcorn provided!
+REMOVE_ALL cookie
+REMOVE_ALL cookie
+ANNOUNCE 3
+PROMOTE_ANNOUNCEMENTS fizzy
+PROMOTE_ANNOUNCEMENTS apple
+ANNOUNCE 5
+REMOVE_ALL hopscotch
+ANNOUNCE 5
+PROMOTE_ANNOUNCEMENTS apple
+REMOVE_ALL pinky
+SEND sugarberry santa Reminder: The annual snowball fight will take place tomorrow at noon.
+ANNOUNCE 2
+SEND yumyum snowman Attention, everyone! The sleigh bells are being polished. Expect some noise.
+ANNOUNCE 5
+SEND cookie elf1 Reminder: The snow sculpture contest is next week. Start sculpting!
+ANNOUNCE 3
+PROMOTE_ANNOUNCEMENTS pinky
+SEND fizzy santa Attention, all reindeer! Make sure your harnesses are properly fitted.
+ANNOUNCE 5
+SEND hopscotch elf1 Attention, elves! The gift-wrapping contest winners will be announced at 4 PM.
+ANNOUNCE 4
+ANNOUNCE 5
+ANNOUNCE 4
+SEND pinky snowman Attention, all elves! The inventory of jingle bells has been replenished.
+PROMOTE_ANNOUNCEMENTS pinky
+REMOVE_ALL cookie
+SEND greenie santa Reindeer, don't forget to hydrate and rest up for the big night.
+SEND fizzy elf2 Attention, everyone! The workshop will be closed for maintenance tomorrow.
+ANNOUNCE 2
+REMOVE_ALL hopscotch
+PROMOTE_ANNOUNCEMENTS sugarberry
+PROMOTE_ANNOUNCEMENTS greenie
+REMOVE_ALL sugarberry
+ANNOUNCE 3
+REMOVE_ALL greenie
+REMOVE_ALL cookie
+ANNOUNCE 5

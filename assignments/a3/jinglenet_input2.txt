@@ -1,0 +1,8 @@
+SEND lili santa Hi!!
+SEND yumyum santa I love Christmas!
+SEND yumyum reindeer Rocking horse repair needed!
+SEND yumyum reindeer I'm hungry!
+SEND yumyum elf1 yaaay!
+SEND yumyum elf1 I'm hungry
+SEND choco snowman choco4ever
+ANNOUNCE 3

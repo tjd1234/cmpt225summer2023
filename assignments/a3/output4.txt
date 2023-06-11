@@ -1,0 +1,5 @@
+1: {lili, santa, "Hi!!"}
+2: {yumyum, santa, "I love Christmas!"}
+3: {yumyum, santa, "Rocking horse repair needed!"}
+4: {yumyum, santa, "I'm hungry!"}
+5: {yumyum, elf2, "yaaay!"}

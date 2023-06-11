@@ -1,0 +1,2 @@
+1: {greenie, elf2, "send candy canes"}
+2: {yumyum, elf2, "I love candy canes!"}
