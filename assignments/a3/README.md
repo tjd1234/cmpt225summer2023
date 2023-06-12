@@ -425,7 +425,7 @@ g++ -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virt
   [jinglenet_input4.txt](jinglenet_input4.txt), and
   [jinglenet_input5.txt](jinglenet_input5.txt).
 - **3 marks**: The program produces the correct output for another input file,
-  in the same style as the jnghlenet_input files supplied by the markers.
+  in the same style as the `jinglenet_input` files supplied by the markers.
 
 
 ### Overall source code readability: 5 marks
