@@ -1,5 +1,9 @@
 // Queue_base.h
 
+//
+// Dont't change this file in any way!
+//
+
 #pragma once
 
 #include <string>
