@@ -336,7 +336,7 @@ announcements were made):
     [Queue_base.h](Queue_base.h).
 
 - Implement a class called `JingleNet` that stores the 5 queues. The details of
-  this class is up to you. Use it in a sensible way that makes your program
+  this class are up to you. Use it in a sensible way that makes your program
   easier to understand. For instance, `JingleNet` could have a method for each
   JingleNet command above.
 
