@@ -70,7 +70,7 @@ bool is_sorted(vector<T> &v);
 
 //
 // Sorting algorithm headers. Each algorithm implements the named algorithm as
-// described in the textbook (iquick sort is decribed in the assignment), and
+// described in the textbook (iquick sort is described in the assignment), and
 // returns a SortStats object containing statistics about the run.
 //
 
