@@ -166,7 +166,7 @@ Google Sheets as a CSV file.
 ## Visualizing the Data in a Spreadsheet
 
 Using Excel or Google Sheets, create a table of all the data you generated. Here
-us an example of what the first four rows of the table ought to look like (the
+is an example of what the first four rows of the table ought to look like (the
 numbers in your table might be different):
 
 | **Name**    | **N** | **Comparisons** | **CPU Seconds** |
