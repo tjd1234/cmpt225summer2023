@@ -279,7 +279,7 @@ code for speed.
 - **A score of 0** if valgrind reports any memory leaks, or other errors.
 - **A score of 0** if you *don't* include the "Statement of Originality", or it
   is modified in any way.
-- **A score of 0** if use code from some other source (e.g. the web, the
+- **A score of 0** if you use code from some other source (e.g. the web, the
   textbook, ChatGPT, ...) *without* citing its source.
 - **A score of 0** if you submit a "wrong" non-working file, and then *after the
   due date* submit the "right" file. If you can provide evidence that you
