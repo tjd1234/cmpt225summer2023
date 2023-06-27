@@ -22,7 +22,7 @@ in any way: all the sorting-related code you write goes in
 "a4_base.h"`. No other #includes are allowed.
 
 *iquick* sort is regular quick sort, except when the sub-vectors being sorted
-are shorter than some predetermined threshold length, insertion sort is instead
+are shorter than some predetermined threshold length, insertion sort is used instead
 of quick sort. If you choose a good threshold length, you can get better
 average-time performance than regular quick sort. Do some experimentation to
 find the best threshold length for *iquick* sort!
