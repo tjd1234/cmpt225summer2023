@@ -19,7 +19,7 @@ public:
     // Pre-condition:
     //    none
     // Post-condition:
-    //    returns number of items in the hash table
+    //    returns number of items in the map
     //
     virtual int size() const = 0;
 
@@ -27,7 +27,7 @@ public:
     // Pre-condition:
     //    none
     // Post-condition:
-    //    returns maximum number of items the hash table can hold
+    //    returns maximum number of items the map can hold
     //
     virtual int max_size() const = 0;
 
@@ -39,15 +39,15 @@ public:
     //
     virtual double load_factor() const = 0;
 
-    // return true if the hash table is empty
+    // return true if the map is empty
     virtual bool empty() const = 0;
 
     //
     // Pre-condition:
     //    none
     // Post-condition:
-    //    add (key, value) pair to the hash table; if the key is already in the
-    //    hash table, replace the old value with the new value
+    //    add (key, value) pair to the map; if the key is already in the
+    //    map, replace the old value with the new value
     //
     virtual void put(const string &key, const string &value) = 0;
 
@@ -55,7 +55,7 @@ public:
     // Pre-condition:
     //    none
     // Post-condition:
-    //    returns true if a pair with the given key is in the hash table
+    //    returns true if a pair with the given key is in the map
     //
     virtual bool contains(const string &key) const = 0;
 
@@ -63,7 +63,7 @@ public:
     // Pre-condition:
     //    contains(key) is true
     // Post-condition:
-    //    returns the value associated with the given key
+    //    returns a copy of the value associated with the given key
     //
     virtual string get(const string &key) const = 0;
 
@@ -71,8 +71,8 @@ public:
     // Pre-condition:
     //    none
     // Post-condition:
-    //    remove the pair with the given key from the hash table; does nothing
-    //    if the key is not in the hash table
+    //    remove the pair with the given key from the map; does nothing
+    //    if the key is not in the map
     //
     virtual void remove(const string &key) = 0;
 
@@ -80,7 +80,7 @@ public:
     // Pre-condition:
     //    none
     // Post-condition:
-    //    removes all pairs from the hash table, making its size 0
+    //    removes all pairs from the map, making its size 0
     //
     virtual void clear() = 0;
 
