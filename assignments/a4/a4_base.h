@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -95,7 +97,6 @@ SortStats shell_sort(vector<T> &v);
 template <typename T>
 SortStats iquick_sort(vector<T> &v);
 // See description in assignment.
-
 
 //
 // Returns a vector of n randomly chosen ints, each <= max and >= min.

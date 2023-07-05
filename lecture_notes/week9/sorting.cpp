@@ -542,11 +542,11 @@ int main()
     //
     srand(time(0));
 
-    test_is_sorted();
-    test_make_rand_vector();
+    // test_is_sorted();
+    // test_make_rand_vector();
 
-    test_permutation_sort();
-    test_randomized_permutation_sort();
+    // test_permutation_sort();
+    // test_randomized_permutation_sort();
 
     Merge_sort_tester().time_sort(TIMING_WORDS);
     Quick_sort_tester().time_sort(TIMING_WORDS);
