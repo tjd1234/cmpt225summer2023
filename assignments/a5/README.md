@@ -92,7 +92,7 @@ write for `Wordlist` should be called `~Wordlist()`.
 
 ### Testing Your Code
 
-YOu can use the `test_read()` function in [a5_main.cpp](a5_main.cpp) to test
+You can use the `test_read()` function in [a5_main.cpp](a5_main.cpp) to test
 your code. For example, [small.txt](small.txt) contains the following text:
 
 ```
