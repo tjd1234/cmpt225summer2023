@@ -92,7 +92,7 @@ write for `Wordlist` should be called `~Wordlist()`.
 
 ### Testing Your Code
 
-YOu can use the `test_read()` function in [a5_main.cpp](a5_main.cpp) to test
+You can use the `test_read()` function in [a5_main.cpp](a5_main.cpp) to test
 your code. For example, [small.txt](small.txt) contains the following text:
 
 ```
@@ -293,7 +293,7 @@ Be sure to test your program, and run it with `valgrind`, before submitting it.
 - up to **-3 marks** if you do not include your full name, email, and SFU ID in
   the header of your file.
 - **a score of 0** if you do any of the following:
-  - change `Node` is ways that are not allowed, if you modify anything in
+  - change `Node` in ways that are not allowed, if you modify anything in
     `Wordlist_base`, or if you use a vector, array, or any other data structure
     other than an AVL tree.
   - don't include the "statement of originality, or its modified in any way.
@@ -310,5 +310,5 @@ more, words tie for the most frequent, then the one with the word that comes
 first alphabetically is returned. 
 
 Also, the `is_sorted()` method should should return `true` if the AVL tree is a
-BST (binary search tree), and `false` otherwise. If your ever AVL tree is not a
+BST (binary search tree), and `false` otherwise. If ever your AVL tree is not a
 BST, then you have a serious problem!
