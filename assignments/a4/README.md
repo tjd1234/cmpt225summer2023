@@ -271,6 +271,7 @@ code for speed.
 
 ### Deductions
 
+- **-5 marks** for any memory leaks, or other errors, reported by `valgrind`.
 - Up to **-3 marks** if you do *not* include your full name, email, and SFU ID
   in the header of your file.
 - Up to **-3 marks** if your submitted files don't following the
