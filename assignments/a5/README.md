@@ -1,6 +1,3 @@
-> **WARNING** This assignment is not yet published, and could change in any way
-> at any time.
-
 ## Assignment 5: Word Lists Re-visited
 
 In this assignment, your task is to re-implement the `Wordlist` class from

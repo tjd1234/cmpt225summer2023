@@ -4,7 +4,7 @@
 - [Assignment 2](assignments/a2)
 - [Assignment 3](assignments/a3)
 - [Assignment 4](assignments/a4)
-- Assignment 5
+- [Assignment 5](assignments/a5)
 
 
 # Sample Midterm questions
