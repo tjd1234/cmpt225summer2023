@@ -284,7 +284,8 @@ Be sure to test your program, and run it with `valgrind`, before submitting it.
 
 ### Deductions
 
-- **-5 marks** for any memory leaks, or other errors, reported by `valgrind`.
+- at least **-5 marks** for any memory leaks, or other errors, reported by
+  `valgrind`.
 - at least **-1 mark** if your file has an incorrect name, or you submit it in
   the incorrect format, etc.
 - up to **-3 marks** if you do not include your full name, email, and SFU ID in
@@ -300,11 +301,9 @@ Be sure to test your program, and run it with `valgrind`, before submitting it.
 
 ## Differences from Assignment 1
 
-You can think of the AVL tree as storing the words in alphabetical order.
-
-So, the tie-breaking rule for the `most_frequent()` method means that if two, or
-more, words tie for the most frequent, then the one with the word that comes
-first alphabetically is returned. 
+You can think of the AVL tree as storing the words in alphabetical order. So,
+the tie-breaking rule for the `most_frequent()` is if two, or more, words tie
+for the most frequent, then return the word that comes first alphabetically. 
 
 Also, the `is_sorted()` method should should return `true` if the AVL tree is a
 BST (binary search tree), and `false` otherwise. If ever your AVL tree is not a
