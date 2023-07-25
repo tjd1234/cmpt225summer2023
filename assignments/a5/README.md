@@ -293,11 +293,11 @@ Be sure to test your program, and run it with `valgrind`, before submitting it.
 - **a score of 0** if you do any of the following:
   - change `Node` in ways that are not allowed, if you modify anything in
     `Wordlist_base`, or if you use a vector, array, or any other data structure
-    other than an AVL tree.
-  - don't include the "statement of originality, or its modified in any way.
+    other than an AVL tree
+  - don't include the "statement of originality, or its modified in any way
   - submit a "wrong" non-working file, and then *after the due date* submit the
     "right" file. If you can provide evidence that you finished the assignment
-    on time, then it may be marked.
+    on time, then it may be marked
 
 ## Differences from Assignment 1
 
