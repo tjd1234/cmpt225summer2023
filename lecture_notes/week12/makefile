@@ -1,10 +1,10 @@
 ####################################################################
 #
-# Makefile for CMPT 225 Summer 2023.
+# Makefile for CMPT 225 Spring 2023, SFU Surrey.
 #
 # Assumes g++ version 9.4.0 or later. Check your version with:
 #
-#     > g++ --version
+#     g++ --version
 #     ...
 #     gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1)
 #
@@ -20,4 +20,4 @@
 #    unsigned numbers
 #   -Wnon-virtual-dtor warn about non-virtual destructors
 #   -g puts debugging info into the executables (makes them larger)
-CPPFLAGS = -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virtual-dtor -g
+CPPFLAGS = -O3 -std=c++17 -Wall -Wextra -Werror -Wfatal-errors -Wno-sign-compare -Wnon-virtual-dtor -g
