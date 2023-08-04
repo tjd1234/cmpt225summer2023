@@ -7,12 +7,14 @@
 - [Assignment 5](assignments/a5)
 
 
-# Sample Midterm questions
+# Sample Exam questions
 
-- [Some sample midterm questions](sample_midterm_questions/225_midterm_sample_questions.pdf)   
+- [Sample midterm questions](sample_midterm_questions/225_midterm_sample_questions.pdf)   
 ([solutions](sample_midterm_questions/222_midterm_sample_questions_sol.pdf))
-
 - [Sample midterm](sample_midterm_questions/225_midterm_BBY_summer2023.pdf) ([solutions](225_midterm_BBY_summer2023_sol))
+
+- [Sample final questions](sample_final_questions/final_sample_questions.pdf)   
+([solutions](sample_final_questions/final_sample_questions_sol.pdf))
 
 
 # CMPT 225-D100 Burnaby Lecture Notes
